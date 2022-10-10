@@ -1,71 +1,175 @@
 <h1>Thông tin cá nhân</h1>
 <p-card>
-    <form [formGroup]="formProfile">
+
+  <div class="row">
+    <img *ngIf="user"  [src]="urlAvaTa + avataName" alt="Avatar"
+         style="width:200px; border-radius: 50%;  margin: 0 auto; margin-bottom: 20px;">
+  </div>
+
+  <div class="text-center uploadAvata form-group col-12 col-sm-8 col-md-6">
+    <div class = 'form-row'>
+      <div class="col-7 col-sm-8 col-md-9">
+        <input class="form-control" type="file"
+               (change)="onChange($event)">
+      </div>
+      <div>
+        <button (click)="onUpload()"
+                class="btn btn-success">
+          Upload
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="formProfile"  (ngSubmit)="submit()">
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
         <div class="row">
-            <img src="assets/images/alan.png" alt="Avatar"
-                style="width:200px; border-radius: 50%;  margin: 0 auto; margin-bottom: 20px;">
+          <label class="label col-3 col-form-label ">Họ và Tên</label>
+          <div class="col-9">
+            <input type="text"  class="form-control" formControlName="fullName">
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.fullName.errors
+                                   && formProfile.controls.fullName.touched || submited">
+              <div *ngIf="formProfile.controls.fullName.errors?.required">Không được để trống</div>
+              <div *ngIf="!formProfile.controls.fullName.errors?.required
+                                 && formProfile.controls.fullName.errors?.pattern ">
+                Tên không chứa số và ký tự đặc biệt không quá 30 ký tự</div>
+            </div>
+          </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <div class="row">
-                    <label class="label col-3 col-form-label ">Họ và Tên</label>
-                    <div class="col-9">
-                        <input type="text" pInputText class="form-control" formControlName="fullName">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group col-md-6">
-                <div class="row">
-                    <label class="label col-3 col-form-label">Email</label>
-                    <div class="col-9">
-                        <input type="text" pInputText class="form-control" formControlName="email">
-                    </div>
-                </div>
+      </div>
 
-            </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Giới tính</label>
+          <div class="col-9 col-sm-9">
+            <!--                        <input type="text" pInputText class="form-control" formControlName="gender">-->
+            <select id="gender"  class="form-control" formControlName="gender">
+              <option   [selected]="gender === value" value="Nam"  >Nam</option>
+              <option   [selected]="gender === value" value="Nữ"  >Nữ</option>
+              <option   [selected]="gender === value" value="Khác"  >Khác</option>
+            </select>
+          </div>
         </div>
-        <div class="form-row" style="margin-bottom: 20px;">
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="label col-3 col-form-label">Số điện thoại</label>
-                    <div class="col-9">
-                        <input type="text" pInputText class="form-control" formControlName="phoneNumber">
-                    </div>
-                </div>
 
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="label col-3 col-form-label">Ngày sinh</label>
-                    <div class="col-9">
-                        <input type="text" pInputText class="form-control" formControlName="birthDay">
-                    </div>
-                </div>
+      </div>
 
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Email</label>
+          <div class="col-9">
+            <input type="text" class="form-control" formControlName="email">
+
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.email.errors
+                                   && formProfile.controls.email.touched || submited">
+              <div *ngIf="formProfile.controls.email.errors?.required">Không được để trống</div>
+              <div *ngIf="!formProfile.controls.email.errors?.required
+                                 && formProfile.controls.email.errors?.email ">email không đúng</div>
             </div>
+          </div>
         </div>
-        <div class="form-row">
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="label col-3 col-form-label">Quê quán</label>
-                    <div class="col-9">
-                        <input type="text" pInputText class="form-control" formControlName="homeTown">
-                    </div>
-                </div>
+      </div>
 
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <label class="label col-sm-3 col-form-label">Giới tính</label>
-                    <div class="col-sm-9">
-                        <input type="text" pInputText class="form-control" formControlName="gender">
-                    </div>
-                </div>
-
-            </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Đơn vị</label>
+          <div class="col-9">
+            <input readonly type="text" pInputText class="form-control" formControlName="unit">
+          </div>
         </div>
-    </form>
-    <ng-template pTemplate="footer">
-        Chân trang trình bày tại đây !
-    </ng-template>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Lương</label>
+          <div class="col-9">
+            <input readonly type="text" pInputText class="form-control" formControlName="salary">
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">cccd/cmt</label>
+          <div class="col-9">
+            <input type="text"   class="form-control" formControlName="cccd">
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.cccd.errors
+                                   && formProfile.controls.cccd.touched || submited">
+              <div *ngIf="formProfile.controls.cccd.errors?.required">Không được để trống</div>
+              <div *ngIf="!formProfile.controls.cccd.errors?.required
+                                 && formProfile.controls.cccd.errors?.pattern ">Cccd không đúng</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Số điện thoại</label>
+          <div class="col-9">
+            <input type="text"  class="form-control" formControlName="phoneNumber">
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.phoneNumber.errors
+                                   && formProfile.controls.phoneNumber.touched || submited">
+              <div *ngIf="formProfile.controls.phoneNumber.errors?.required">Không được để trống</div>
+              <div *ngIf="!formProfile.controls.phoneNumber.errors?.required
+                                 && formProfile.controls.phoneNumber.errors?.pattern ">Số điện thoại khống đúng </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Ngày sinh</label>
+          <div class="col-9">
+            <input type="date"  class="form-control" formControlName="birthDay">
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.birthDay.errors
+                                   && formProfile.controls.birthDay.touched || submited">
+              <div *ngIf="formProfile.controls.birthDay.errors?.required">Mật khẩu không được để trống</div>
+              <div *ngIf="formProfile.controls.birthDay.errors?.valadateDateNotOk">Tuổi lớn hơn 1 nhỏ hơn 90</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label  col-3 col-form-label">Quê quán</label>
+          <div class="col-9">
+            <input type="text"  class="form-control" formControlName="homeTown">
+
+            <div class="text-danger pt-1"  *ngIf="formProfile.controls.homeTown.errors
+                                   && formProfile.controls.homeTown.touched || submited">
+              <div *ngIf="formProfile.controls.homeTown.errors?.required">Không được để trống</div>
+              <div *ngIf="formProfile.controls.homeTown.errors?.maxlength">Quê quán nhập không quá 250 ký tự</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-3 col-form-label">Chức vụ</label>
+          <div class="col-9">
+            <input readonly type="text" pInputText class="form-control" formControlName="position">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 col-sm-6 col-md-6 py-3">
+      <button class="px-4 pr-4 btn btn-primary"  style="float: right;">Save</button>
+    </div>
+  </form>
+
 </p-card>
+
+
+
+

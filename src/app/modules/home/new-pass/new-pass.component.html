@@ -1,0 +1,46 @@
+
+<h1>Đổi mật khẩu</h1>
+<p-card>
+  <form [formGroup]="formPassword" (ngSubmit)="onSubmit()">
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label  col-sm-3 col-form-label">Mật Khẩu</label>
+          <div class="col-sm-9">
+            <input type="text" (blur)="blur()"  (focus)="forcus()" class="form-control" formControlName="password">
+
+          <div class="text-danger pt-1"  *ngIf="formPassword.controls.password.errors
+                                   && formPassword.controls.password.touched && togger || submited">
+            <div *ngIf="formPassword.controls.password.errors?.required">Mật khẩu không được để trống</div>
+            <div *ngIf="formPassword.controls.password.errors?.pattern">Mật khẩu từ 8 tới 16 ký tự gồm chữ in hoa,viết thường,số và ký tự đặc biệt</div>
+          </div>
+        </div>
+        </div>
+
+      </div>
+      <div class="form-group col-md-6">
+        <div class="row">
+          <label class="label col-sm-3 col-form-label">Nhập lại mật khẩu</label>
+          <div class="col-sm-9">
+            <input type="text" (blur)="blur()"  (focus)="forcus()"   class="form-control" formControlName="RePassword">
+
+          <div class="text-danger pt-1"  *ngIf="formPassword.controls.RePassword.errors
+                                   && formPassword.controls.RePassword.touched && togger || submited" >
+            <div *ngIf="formPassword.controls.RePassword.errors?.required">Nhập lại mật khẩu không được để trống</div>
+          </div>
+            <div class="text-danger pt-1"  *ngIf=" formPassword.errors && !formPassword.controls.RePassword.errors
+                                    && togger">
+              <div *ngIf="formPassword.errors ">Không trùng với mật khẩu xin nhập lại</div>
+            </div>
+        </div>
+
+        </div>
+      </div>
+      </div>
+    <div class=" col-md-12 mb-5">
+      <button class="btn btn-primary px-4" style="float: right;">Thay đổi</button>
+    </div>
+  </form>
+  </p-card>
+

@@ -15,7 +15,7 @@ export class SessionService {
    * @param value
    */
   setItem(key: string, value: any) {
-    sessionStorage.setItem(key, JSON.stringify(value));
+    localStorage.setItem(key, JSON.stringify(value));
   }
 
   /**
@@ -24,7 +24,7 @@ export class SessionService {
    * @param key
    */
   getItem(key: string): any {
-    const value = sessionStorage.getItem(key);
+    const value = localStorage.getItem(key);
     return JSON.parse(value);
   }
 
@@ -34,14 +34,14 @@ export class SessionService {
    * @param key
    */
   removeItem(key: string) {
-    sessionStorage.removeItem(key);
+    localStorage.removeItem(key);
   }
 
   /**
    * remove all session storage items
    */
   clear() {
-    sessionStorage.clear();
+    localStorage.clear();
   }
 
 }

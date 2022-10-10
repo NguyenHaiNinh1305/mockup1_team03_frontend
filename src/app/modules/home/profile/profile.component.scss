@@ -1,0 +1,30 @@
+
+@mixin mobile {@media (max-width: 479px) {
+  @content;
+}
+}
+
+@mixin tablet {@media (min-width: 767px) and (1023px) {
+  @content;
+}
+}
+
+@mixin desktop {@media (min-width: 1024px) {
+  @content;
+}
+}
+
+
+.uploadAvata{
+  margin-left: 25%;
+  margin-bottom: 20px;
+  @media (min-width: 767px) and (1023px){
+    margin-left: 15%;
+  }
+  @media (max-width: 479px){
+    margin-left: 5%;
+  }
+
+
+
+}

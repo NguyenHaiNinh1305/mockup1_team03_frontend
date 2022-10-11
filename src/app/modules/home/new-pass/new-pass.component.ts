@@ -5,6 +5,8 @@ import {SessionService} from "../../../@core/services/session.service";
 import {ProfileService} from "../profile/profile.service";
 import {PrimeNGConfig} from "primeng/api";
 import {User} from "./new-pass.model";
+import {UserService} from "../../../@core/services/user.service";
+import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -16,7 +18,8 @@ export function comparePassword(c: AbstractControl) {
 @Component({
   selector: 'ngx-new-pass',
   templateUrl: './new-pass.component.html',
-  styleUrls: ['./new-pass.component.scss']
+  styleUrls: ['./new-pass.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 export class NewPassComponent implements OnInit {
   [x: string]: any;
@@ -30,7 +33,16 @@ export class NewPassComponent implements OnInit {
     private sessionService: SessionService,
     private profileService: ProfileService,
     private fb: FormBuilder,
-    private primengConfig: PrimeNGConfig) { }
+    private primengConfig: PrimeNGConfig,
+    private  userService: UserService,
+     private modalService: NgbModal,
+    config: NgbModalConfig)
+  {config.backdrop = 'static';
+  config.keyboard = false;}
+
+  open(content) {
+    this.modalService.open(content);
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -81,6 +93,10 @@ export class NewPassComponent implements OnInit {
     forcus(){
     this.togger = false;
     this.submited = false;
+
+      let token =  this.userService.getDecodedAccessToken();
+      console.log(token);
+
   }
 
 }

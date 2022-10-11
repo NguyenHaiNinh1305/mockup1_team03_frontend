@@ -5,6 +5,8 @@ import { SessionService } from '../../../@core/services/session.service';
 import { User } from './profile.model';
 import { ProfileService } from './profile.service';
 import {ToastrService} from "ngx-toastr";
+import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
+
 
 export function validateDate(c: AbstractControl) {
   let birthday = new Date(c.value);
@@ -21,6 +23,7 @@ export function validateDate(c: AbstractControl) {
   selector: 'ngx-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
+  providers: [NgbModalConfig, NgbModal]
 })
 
 export class ProfileComponent implements OnInit {
@@ -28,7 +31,7 @@ export class ProfileComponent implements OnInit {
   formProfile: FormGroup;
   user: User;
   username: string;
-  urlAvaTa = "http://localhost:9090/api/public/user/user-profile/avata/";
+  urlAvaTa = "http://localhost:9090/api/public/user-profile/avata/";
   avataName:string;
   file: File = null;
   submited = false;
@@ -39,16 +42,24 @@ export class ProfileComponent implements OnInit {
     private fb: FormBuilder,
     private primengConfig: PrimeNGConfig,
     private  toastr: ToastrService,
-  ) {}
+    private modalService: NgbModal,
+    config: NgbModalConfig
+  ) {config.backdrop = 'static';
+    config.keyboard = false;}
+
+  open(content) {
+    this.modalService.open(content);
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.getByUserName();
     this.initForm();
   }
+
   initForm(){
     this.formProfile = this.fb.group({
-      fullName: ["", [Validators.required,Validators.pattern('[a-zA-Z]{6,30}')]],
+      fullName: ["", [Validators.required,Validators.pattern('[a-z A-Z]{6,30}')]],
       email: ['', [Validators.required,Validators.email]],
       phoneNumber: ['', [Validators.required,Validators.pattern("^(84|0[3|5|7|8|9])+([0-9]{8})\\b")]],
       birthDay: ['', [Validators.required,validateDate]],
@@ -72,7 +83,6 @@ export class ProfileComponent implements OnInit {
     )
   }
 
-
   updateForm(user: User): void {
     this.formProfile.patchValue({
       fullName:user.name,
@@ -88,6 +98,7 @@ export class ProfileComponent implements OnInit {
 
     });
   }
+
   submit(){
     this.submited = true;
     let ckeck = true;
@@ -95,6 +106,7 @@ export class ProfileComponent implements OnInit {
       const controlErrors: ValidationErrors = this.formProfile.get(key).errors;
       if (controlErrors != null) {
         ckeck = false;
+        this.checkUpdate = false;
         this.toastr.warning('Kiểm tra lại thông tin, cập nhật không thành công');
         return;
       }
@@ -103,8 +115,10 @@ export class ProfileComponent implements OnInit {
       this.updateUser();
       this.profileService.putProfile(this.user).subscribe(
         (res)=>{
+          this.checkUpdate = false;
           this.toastr.success('Cập nhật thành công');
         },error => {
+          this.checkUpdate = false;
           this.toastr.error("Cập nhật không thành công");
         });
     }
@@ -122,9 +136,9 @@ export class ProfileComponent implements OnInit {
   }
   onChange(event) {
     this.file = event.target.files[0];
-
-
+    this.onUpload();
   }
+
   onUpload(){
     if(this.file){
       this.profileService.putAvata(this.file,this.user.id).subscribe(

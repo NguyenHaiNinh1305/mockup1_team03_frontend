@@ -1,14 +1,14 @@
 
 <h1>Đổi mật khẩu</h1>
 <p-card>
-  <form [formGroup]="formPassword" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formPassword" >
     <div class="row">
 
       <div class="form-group col-md-6">
         <div class="row">
           <label class="label  col-sm-3 col-form-label">Mật Khẩu</label>
           <div class="col-sm-9">
-            <input type="text" (blur)="blur()"  (focus)="forcus()" class="form-control" formControlName="password">
+            <input type="password" (blur)="blur()"  (focus)="forcus()" class="form-control" formControlName="password">
 
           <div class="text-danger pt-1"  *ngIf="formPassword.controls.password.errors
                                    && formPassword.controls.password.touched && togger || submited">
@@ -23,7 +23,7 @@
         <div class="row">
           <label class="label col-sm-3 col-form-label">Nhập lại mật khẩu</label>
           <div class="col-sm-9">
-            <input type="text" (blur)="blur()"  (focus)="forcus()"   class="form-control" formControlName="RePassword">
+            <input type="password" (blur)="blur()"  (focus)="forcus()"   class="form-control" formControlName="RePassword">
 
           <div class="text-danger pt-1"  *ngIf="formPassword.controls.RePassword.errors
                                    && formPassword.controls.RePassword.touched && togger || submited" >
@@ -39,8 +39,24 @@
       </div>
       </div>
     <div class=" col-md-12 mb-5">
-      <button class="btn btn-primary px-4" style="float: right;">Thay đổi</button>
+      <button (click)="open(content)" class="btn btn-primary px-4" style="float: right;">Thay đổi</button>
     </div>
   </form>
+
+  <!--              Modal                 -->
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+    </div>
+    <div class="modal-body">
+      <p>Xác nhận thay đổi!</p>
+    </div>
+    <div class="modal-footer">
+      <div (click)="onSubmit()">
+        <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
+      </div>
+      <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
+    </div>
+  </ng-template>
+  <!--              Modal                 -->
   </p-card>
 

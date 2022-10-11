@@ -21,6 +21,9 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AvatarModule} from "primeng/avatar";
+import {ButtonModule} from "primeng/button";
 
 const configToast: any = {
   timeOut: 3000,
@@ -50,6 +53,10 @@ const configToast: any = {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ToastrModule.forRoot(configToast),
+    ReactiveFormsModule,
+    AvatarModule,
+    ButtonModule,
+    FormsModule,
   ],
   bootstrap: [AppComponent],
 })

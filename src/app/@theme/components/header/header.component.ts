@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.user = this.sessionService.getItem('auth-user');
 
     this.menuService.onItemClick().subscribe((event)=>{
-      if(event.item.title==='Log out'){
+      if(event.item.title==='Đăng xuất'){
         this.sessionService.removeItem('auth-token'),
         this.sessionService.removeItem('auth-user'),
         this.router.navigate(['/auth/'])

@@ -6,6 +6,7 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { SessionService } from '../../../@core/services/session.service';
 import { Router } from '@angular/router';
+import {ProfileService} from "../../../modules/home/profile/profile.service";
 
 @Component({
   selector: 'ngx-header',
@@ -17,9 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
   user: any;
-  picture='iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAG1BMVEVEeef///+4zPaKq/ChvPPn7' +
-  'vxymu3Q3flbieqI1HvuAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAQUlEQVQ4jWNgGAWjgP6ASdncAEaiAhaGiACmFhCJLsMaIiDAEQEi0WXYEiMC' +
-  'OCJAJIY9KuYGTC0gknpuHwXDGwAA5fsIZw0iYWYAAAAASUVORK5CYII=';
+  picture;
 
   name=this.sessionService.getItem('auth-user')
 
@@ -44,7 +43,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Thông tin cá nhân' }, { title: 'Đăng xuất'   } ];
+  userMenu = [ { title: 'Thông tin cá nhân' },{ title: 'Thay đổi mật khẩu'   }, { title: 'Đăng xuất'   } ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -53,6 +52,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private breakpointService: NbMediaBreakpointsService,
               private sessionService: SessionService,
               private router: Router,
+              private profileService: ProfileService,
               ) {
   }
 
@@ -60,15 +60,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.currentTheme = this.themeService.currentTheme;
 
     this.user = this.sessionService.getItem('auth-user');
-
+    this.getByUserName(this.user);
     this.menuService.onItemClick().subscribe((event)=>{
       if(event.item.title==='Đăng xuất'){
         this.sessionService.removeItem('auth-token'),
         this.sessionService.removeItem('auth-user'),
         this.router.navigate(['/auth/'])
       }
-      if(event.item.title==='Profile'){
+      if(event.item.title==='Thông tin cá nhân'){
         this.router.navigate(['/home/profile'])
+      }
+      if(event.item.title==='Thay đổi mật khẩu'){
+        this.router.navigate(['/home/change-password'])
       }
     });
 
@@ -108,4 +111,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.menuService.navigateHome();
     return false;
   }
+
+
+  getByUserName(username){
+    this.profileService.getProfile(username).subscribe(
+      (res)=>{
+        if(res.object.avatarName){
+          this.picture = 'http://localhost:9090/api/public/user-profile/avata/' + res.object.avatarName;
+        }else {
+          this.picture  = 'https://www.w3schools.com/howto/img_avatar.png';
+        }
+      },error => {
+        this.picture  = 'https://www.w3schools.com/howto/img_avatar.png';
+      }
+    )
+  }
 }
+

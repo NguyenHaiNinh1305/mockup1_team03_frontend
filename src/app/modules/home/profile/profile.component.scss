@@ -1,0 +1,27 @@
+.uploadAvata {
+  margin-left: 25%;
+  margin-bottom: 20px;
+  @media (min-width: 767px) and (1023px) {
+    margin-left: 15%;
+  }
+  @media (max-width: 479px) {
+    margin-left: 5%;
+  }
+}
+::ng-deep ngb-modal-backdrop {
+  z-index: 25 !important;
+}
+.image-upload {
+  margin-left: 35%;
+  @media (min-width: 767px) and (1023px) {
+    margin-left: 20%;
+  }
+  @media (max-width: 479px) {
+    margin-left: 15%;
+  }
+
+
+}
+#file-input {
+  display: none;
+}

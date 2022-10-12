@@ -6,6 +6,7 @@ import {EventEmitter} from "events";
 import {error} from "@angular/compiler/src/util";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {ForgotService} from "./forgot-service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class FogotPassComponent implements OnInit {
     private authService: AuthService,
     private readonly router: Router,
     private forgotService: ForgotService,
+    private  toastr: ToastrService,
   ) { }
 
   //@Output() dataevent = new EventEmitter<string>();
@@ -35,13 +37,13 @@ export class FogotPassComponent implements OnInit {
   public sendOtp(){
     this.forgotService.sendOTP(this.cpi.value.email).subscribe(
       (res)=> {
-        alert(res.message)
+        this.toastr.success(res.message)
         this.router.navigate(['/auth/change-password']).then(r => console.log(r));
         localStorage.setItem('id',res.object.id);
       },
       (error) => {
         console.log(error)
-        alert(error.error?.message);
+        this.toastr.error(error.error?.message);
       }
     );
   }

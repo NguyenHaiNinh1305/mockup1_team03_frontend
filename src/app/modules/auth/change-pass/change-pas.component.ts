@@ -4,6 +4,7 @@ import {AuthService} from "../../../@core/services/auth.service";
 import {Router} from "@angular/router";
 import {changePassService} from "./change-pass";
 import {equal} from "assert";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'ngx-change-pas',
@@ -16,6 +17,7 @@ export class ChangePasComponent implements OnInit {
               private authService: AuthService,
               private router: Router,
               private changePassService :changePassService,
+              private  toastr: ToastrService,
   ) {
   }
 
@@ -39,9 +41,9 @@ export class ChangePasComponent implements OnInit {
       },
       error => {
         if (error.error.message === "Mã OTP không đúng") {
-          alert(error.error.message);
+          this.toastr.error(error.error.message)
         } else if (error.error.message === "Otp này đã hết hạn!") {
-          alert(error.error.message);
+          this.toastr.error(error.error.message)
         }
       }
     );
@@ -52,12 +54,12 @@ export class ChangePasComponent implements OnInit {
 this.changePassService.putConfirm(localStorage.getItem("id"),this.cpf.value.password).subscribe(
 
   (res)=> {
-    alert(res.message)
+    this.toastr.success(res.message);
     this.router.navigate(['/auth']).then(r => console.log(r));
   },
   (error) => {
     console.log(error)
-    alert(error.error?.message);
+    this.toastr.error(error.error?.message)
   }
 );
   }

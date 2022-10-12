@@ -19,7 +19,7 @@ export class UserService{
   // }
 
   getDecodedAccessToken(): any {
-    const token = sessionStorage.getItem('auth-token');
+    const token = localStorage.getItem('auth-token');
     try {
       return jwt_decode(token);
     } catch(Error) {

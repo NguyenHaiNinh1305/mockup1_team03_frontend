@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import {tap} from "rxjs/operators";
 
 
 const httpOptions = {
@@ -16,11 +17,15 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
+  private apiServerUrl = environment.apiUrl;
+
   private readonly baseUrl = `${environment.apiUrl}auth/`;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+  }
 
   public login(form: any): Observable<any> {
     return this.http.post(`${this.baseUrl}login`, form);
   }
+
 }

@@ -2,6 +2,9 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { AuthGuard } from './@core/guards/auth.guard';
+import {LoginComponent} from "./modules/auth/login/login.component";
+import {FogotPassComponent} from "./modules/auth/fogot-pass/fogot-pass.component";
+import {ChangePasComponent} from "./modules/auth/change-pass/change-pas.component";
 
 export const routes: Routes = [
   {

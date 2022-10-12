@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
   formProfile: FormGroup;
   user: User;
   username: string;
-  urlAvaTa = "http://localhost:9090/api/public/user-profile/avata/";
+  urlAvaTa = "http://localhost:9090/api/public/user/user-profile/avata/";
   avataName:string;
   file: File = null;
   submited = false;

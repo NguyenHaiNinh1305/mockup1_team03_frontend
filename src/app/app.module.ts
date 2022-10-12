@@ -20,13 +20,12 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AvatarModule} from "primeng/avatar";
+import {ButtonModule} from "primeng/button";
 import {NgModule} from "@angular/core";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {AuthInterceptor} from "./interceptor/auth-interceptor.js";
-
-
-
-
+ // import {AuthInterceptor} from "./interceptor/auth-interceptor.js";
 
 const configToast: any = {
   timeOut: 3000,
@@ -56,15 +55,19 @@ const configToast: any = {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ToastrModule.forRoot(configToast),
+    ReactiveFormsModule,
+    AvatarModule,
+    ButtonModule,
+    FormsModule,
     NgbModule,
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
-  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: AuthInterceptor,
+  //     multi: true
+  //   }
+  // ],
   bootstrap: [AppComponent],
 
 })

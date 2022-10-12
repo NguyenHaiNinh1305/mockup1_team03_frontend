@@ -61,4 +61,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
+  forgotPassword() {
+    this.router.navigate(['/auth/fogot-pass']).then(r => console.log(r));
+  }
 }

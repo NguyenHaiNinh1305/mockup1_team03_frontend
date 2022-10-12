@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Thông tin cá nhân' }, { title: 'Đăng xuất'   } ];
+  userMenu = [ { title: 'Thông tin cá nhân' },{ title: 'Thay đổi mật khẩu'   }, { title: 'Đăng xuất'   } ];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -62,13 +62,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.user = this.sessionService.getItem('auth-user');
 
     this.menuService.onItemClick().subscribe((event)=>{
-      if(event.item.title==='Log out'){
+      if(event.item.title==='Đăng xuất'){
         this.sessionService.removeItem('auth-token'),
         this.sessionService.removeItem('auth-user'),
         this.router.navigate(['/auth/'])
       }
-      if(event.item.title==='Profile'){
+      if(event.item.title==='Thông tin cá nhân'){
         this.router.navigate(['/home/profile'])
+      }
+      if(event.item.title==='Thay đổi mật khẩu'){
+        this.router.navigate(['/home/change-password'])
       }
     });
 

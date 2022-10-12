@@ -24,10 +24,6 @@ import {NgModule} from "@angular/core";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {AuthInterceptor} from "./interceptor/auth-interceptor.js";
 
-
-
-
-
 const configToast: any = {
   timeOut: 3000,
   positionClass: 'toast-top-right',

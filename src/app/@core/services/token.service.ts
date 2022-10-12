@@ -16,13 +16,13 @@ export class TokenService {
   }
 
   getToken() {
-    const token = window.localStorage.getItem(TOKEN_KEY);
+    const token = localStorage.getItem(TOKEN_KEY);
     return token;
   }
 
   public saveToken(token: string): void {
-    window.localStorage.removeItem(TOKEN_KEY);
-    window.localStorage.setItem(TOKEN_KEY, token);
+   localStorage.removeItem(TOKEN_KEY);
+   localStorage.setItem(TOKEN_KEY, token);
   }
 
   removeToken() {
@@ -31,12 +31,12 @@ export class TokenService {
 
   public saveUser(user: any): void {
     const data = this.userService.getDecodedAccessToken();
-    window.localStorage.removeItem(USER_KEY);
-    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+    localStorage.removeItem(USER_KEY);
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
   public getUser(): any {
-    const user = window.localStorage.getItem(USER_KEY);
+    const user = localStorage.getItem(USER_KEY);
     if (user) {
       return JSON.parse(user);
     }

@@ -6,6 +6,7 @@ import { User } from './profile.model';
 import { ProfileService } from './profile.service';
 import {ToastrService} from "ngx-toastr";
 import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
+import {Router} from "@angular/router";
 
 
 export function validateDate(c: AbstractControl) {
@@ -43,6 +44,7 @@ export class ProfileComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private  toastr: ToastrService,
     private modalService: NgbModal,
+    private router: Router,
     config: NgbModalConfig
   ) {config.backdrop = 'static';
     config.keyboard = false;}

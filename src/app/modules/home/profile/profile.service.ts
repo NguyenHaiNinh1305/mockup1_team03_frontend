@@ -10,7 +10,7 @@ import {User} from "./profile.model";
 export class ProfileService {
 
 
-  private readonly profileAPI = `${environment.apiUrl}public/user/user-profile/`;
+  private readonly profileAPI = `${environment.apiUrl}public/user-profile/`;
 
   constructor(private http: HttpClient) { }
 

@@ -60,6 +60,15 @@ export class LoginComponent implements OnInit {
           const jwtDecode = this.userService.getDecodedAccessToken();
           this.tokenService.saveUser(jwtDecode.sub);
           this.saveUserId();
+
+          // them dieu huong ve trang admin neu co quyen
+          let role = jwtDecode.auth.split(',')
+          if (localStorage.getItem('auth-token')
+            && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
+              || role.includes('ROLE_HR'))) {
+            this.router.navigate(['/admin/']);
+            return;
+          }
           // this.roles = this.tokenService.getUser().roles;
           this.router.navigate(['/home/']);
         },

@@ -1,17 +1,15 @@
 <h1>Thông tin cá nhân</h1>
 
 <p-card>
-
   <div  class="image-upload ">
     <label for="file-input">
-    <img *ngIf="user && avataName"   [src]="urlAvaTa + avataName" alt="Avatar"
-         style="width:200px; border-radius: 50%;  margin: 0 auto; margin-bottom: 20px;">
+      <img *ngIf="user && avataName"   [src]="urlAvaTa + avataName" alt="Avatar"
+           style="width:200px; border-radius: 50%;  margin: 0 auto; margin-bottom: 20px;">
       <img *ngIf="!avataName"   src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"
            style="width:200px; border-radius: 50%;  margin: 0 auto; margin-bottom: 20px;">
     </label>
     <input (change)="onChange($event)" id="file-input" type="file" />
   </div>
-
 
   <form [formGroup]="formProfile"  >
 
@@ -45,6 +43,7 @@
             </select>
           </div>
         </div>
+
       </div>
 
       <div class="form-group col-md-6">
@@ -52,6 +51,8 @@
           <label class="label col-3 col-form-label">Email</label>
           <div class="col-9">
             <input type="text" class="form-control" formControlName="email">
+
+
             <div class="text-danger pt-1"  *ngIf="formProfile.controls.email.errors
                                    && formProfile.controls.email.touched || submited">
               <div *ngIf="formProfile.controls.email.errors?.required">Không được để trống</div>
@@ -152,7 +153,7 @@
       <button class="px-4 pr-4 btn btn-primary" (click)="open(content)"  style="float: right;">Save</button>
     </div>
   </form>
-<!--              Modal                 -->
+  <!--              Modal                 -->
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
     </div>
@@ -161,14 +162,10 @@
     </div>
     <div class="modal-footer">
       <div (click)="submit()">
-          <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
+        <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
       </div>
       <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
     </div>
   </ng-template>
-  <!--      end Modal                 -->
+  <!--              Modal                 -->
 </p-card>
-
-
-
-

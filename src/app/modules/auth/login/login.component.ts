@@ -8,6 +8,7 @@ import {UserService} from "../../../@core/services/user.service";
 import {SessionService} from "../../../@core/services/session.service";
 import {ProfileService} from "../../home/profile/profile.service";
 
+
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,6 @@ export class LoginComponent implements OnInit {
   isSubmitted = false;
   roles: string[] = [];
   isLoggedIn = false;
-
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -80,13 +80,13 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/auth/fogot-pass']).then(r => console.log(r));
   }
 
-  saveUserId(){
+  saveUserId() {
 
     let username = this.sessionService.getItem('auth-user')
     this.profileService.getProfile(username).subscribe(
-      (res)=>{
-        localStorage.setItem("id-user",res.object.id);
+      (res) => {
+        localStorage.setItem("id-user", res.object.id);
       })
-}
 
+  }
 }

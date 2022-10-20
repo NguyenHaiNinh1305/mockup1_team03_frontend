@@ -15,12 +15,11 @@ import {catchError, map} from "rxjs/operators";
 export class AuthInterceptor implements HttpInterceptor {
   token: string;
   constructor( private router: Router,
-              private  tokeSevice: TokenService) { }
+               private  tokeSevice: TokenService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if ( this.tokeSevice.getToken() != null) {
       const tokenInfo = this.tokeSevice.getToken();
-
       const tokenizedReq = req.clone({ headers: req.headers.set('Authorization','Bearer ' + tokenInfo) });
       return next.handle(tokenizedReq).pipe(
         map((event: HttpEvent<any>) => {

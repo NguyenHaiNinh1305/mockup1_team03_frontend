@@ -2,18 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ab3848-3aae-40aa-b4a6-1898c05af8de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/10.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/11.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/12.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/13.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/15.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/18.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/18.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/25.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/25.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/2.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/3.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/4.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/7.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/9.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/services/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@theme/components/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/interceptor/auth-interceptor.js.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/interceptor/auth-interceptor.js.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +142,8 @@
       <workItem from="1665556581081" duration="3751000" />
       <workItem from="1665561184691" duration="595000" />
       <workItem from="1665561844796" duration="95000" />
+      <workItem from="1666254539992" duration="1933000" />
+      <workItem from="1666256521806" duration="450000" />
     </task>
     <servers />
   </component>

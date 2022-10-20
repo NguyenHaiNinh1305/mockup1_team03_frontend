@@ -10,6 +10,7 @@ import { PrimengModule } from '../../shared/primeng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NewPassComponent} from "./new-pass/new-pass.component";
 
+
 const routes: Routes = [{
   path: '',
   component: HomeComponent,

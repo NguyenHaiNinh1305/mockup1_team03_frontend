@@ -5,6 +5,8 @@ import {AuthService} from "../../../@core/services/auth.service";
 import {TokenService} from "../../../@core/services/token.service";
 import {Router} from "@angular/router";
 import {UserService} from "../../../@core/services/user.service";
+import {SessionService} from "../../../@core/services/session.service";
+import {ProfileService} from "../../home/profile/profile.service";
 
 @Component({
   selector: 'ngx-login',
@@ -24,6 +26,8 @@ export class LoginComponent implements OnInit {
               private tokenService: TokenService,
               private router: Router,
               private  userService: UserService,
+              private sessionService: SessionService,
+              private profileService: ProfileService,
   ) {
   }
 
@@ -55,6 +59,14 @@ export class LoginComponent implements OnInit {
           this.tokenService.saveToken(data.token);
           const jwtDecode = this.userService.getDecodedAccessToken();
           this.tokenService.saveUser(jwtDecode.sub);
+          let role = jwtDecode.auth.split(',')
+          if (localStorage.getItem('auth-token')
+            && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
+              || role.includes('ROLE_HR') || role.includes('ROLE_DM_HR'))) {
+            this.router.navigate(['/admin/']);
+            return;
+          }
+          this.saveUserId();
           // this.roles = this.tokenService.getUser().roles;
           this.router.navigate(['/home/']);
         },
@@ -64,6 +76,14 @@ export class LoginComponent implements OnInit {
 
   forgotPassword() {
     this.router.navigate(['/auth/fogot-pass']).then(r => console.log(r));
+  }
+
+  saveUserId() {
+    let username = this.sessionService.getItem('auth-user')
+    this.profileService.getProfile(username).subscribe(
+      (res) => {
+        localStorage.setItem("id-user", res.object.id);
+      })
   }
 
 }

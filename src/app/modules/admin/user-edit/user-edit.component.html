@@ -1,0 +1,247 @@
+<form novalidate [formGroup]="formEdit">
+
+    <div class="row">
+      <div class="col-6">
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Họ và tên: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="name"  placeholder="Ex. Nguyễn Văn A">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('name')?.errors?.required && formEdit.get('name')?.touched">
+              Họ và tên không được để trống !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Email: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="email" placeholder="Ex. 1123@mail.com">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('email')?.errors?.required && formEdit.get('email')?.touched">
+              Email không được để trống !
+            </small>
+
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('email')?.errors?.email && formEdit.get('email')?.touched">
+              Định dạng email chưa đúng !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Tên người dùng: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="userName">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('userName')?.errors?.required && formEdit.get('userName')?.touched">
+              Tên người dùng không được để trống !
+            </small>
+          </div>
+        </div>
+
+<!--        <div class="form-group row">-->
+<!--          <label class="col-md-2 col-form-label">Mật khẩu:</label>-->
+<!--          <div class="col-md-10">-->
+<!--            <input class="form-control" type="password" formControlName="password" placeholder="Ex. 123@aaAA12">-->
+<!--            <small class="col alert text-danger" role="alert"-->
+<!--                   *ngIf="formEdit.get('password')?.errors?.required && formEdit.get('password')?.touched">-->
+<!--              Mật khẩu không được để trống !-->
+<!--            </small>-->
+<!--            <small class="col alert text-danger" role="alert"-->
+<!--                   *ngIf="formEdit.get('password')?.errors?.pattern && formEdit.get('password')?.touched">-->
+<!--              Mật khẩu phải có 8 ký tự trở lên, bao gồm cả chữ, cả số và cả kí tự đặc biệt !-->
+<!--            </small>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">CCCD:</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="cccd">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('cccd')?.errors?.required && formEdit.get('cccd')?.touched">
+              CCCD không được để trống !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Trình độ:</label>
+          <div class="col-md-10">
+            <select class="form-control" formControlName="literacy">
+              <option value="Thạc Sĩ">Thạc sĩ</option>
+              <option value="Tiến Sĩ">Tiến Sĩ</option>
+              <option value="Kỹ Sư">Kỹ Sư</option>
+              <option value="Đại Học">Đại Học</option>
+              <option value="Cao Đẳng">Cao Đẳng</option>
+            </select>
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('literacy')?.errors?.required && formEdit.get('literacy')?.touched">
+              Trình độ chưa được chọn!
+            </small>
+
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">SDT: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="phoneNumber">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('phoneNumber')?.errors?.required && formEdit.get('phoneNumber')?.touched">
+              Số điện thoại không được để trống !
+            </small>
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('phoneNumber')?.errors?.pattern && formEdit.get('phoneNumber')?.touched">
+              Định dạng số điện thoại chưa đúng !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Quê quán: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="homeTown">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('homeTown')?.errors?.required && formEdit.get('homeTown')?.touched">
+              Quê quán không được để trống !
+            </small>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-6">
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Lương:</label>
+          <div class="col-md-10">
+            <input class="form-control" type="text" formControlName="salary">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('salary')?.errors?.required && formEdit.get('salary')?.touched">
+              Lương không được để trống !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Giới tính:</label>
+          <div class="col-md-10 mt-2 ">
+            <select id="gender" class="form-control" formControlName="gender">
+              <option  value="Nam">Nam</option>
+              <option value="Nữ">Nữ</option>
+              <option value="Khác">Khác</option>
+            </select>
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('gender')?.errors?.required && formEdit.get('gender')?.touched">
+              Giới tính chưa được chọn  !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Chức vụ:</label>
+          <div class="col-md-10">
+            <select id="position" class="form-control" formControlName="position">
+              <option value="Intern" >Intern</option>
+              <option value="Dev"    >Dev</option>
+              <option value="Tester" >Tester</option>
+              <option value="Leader" >Leader</option>
+              <option value="PM" >PM</option>
+              <option value="DM"  >DM</option>
+              <option value="HR"  >HR</option>
+            </select>
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('position')?.errors?.required && formEdit.get('position')?.touched">
+              Chức vụ chưa được chọn !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Ngày sinh: </label>
+          <div class="col-md-10">
+            <input class="form-control" type="date" formControlName="birthDay">
+            <small class="col alert text-danger" role="alert"
+                   *ngIf="formEdit.get('birthDay')?.errors?.required && formEdit.get('birthDay')?.touched">
+              Ngày sinh không được để trống !
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Trạng thái: </label>
+          <div class="col-md-10 mt-2">
+            <div>
+              <select id="isActive" class="form-control" formControlName="isActive">
+                <option [disabled]="check1()" value="Active" >Activated</option>
+                <option [disabled]="check1()"  value="NotActive">Deactivated</option>
+              </select>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formEdit.get('isActive')?.errors?.required && formEdit.get('isActive')?.touched">
+                Trạng thái chưa được chọn !
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Trưởng đơn vị: </label>
+          <div class="col-md-10 mt-2">
+            <div>
+
+              <select id="isLeader" class="form-control" formControlName="isLeader">
+                <option [disabled]="check1"   value="Lead">True</option>
+                <option [disabled]="check1"   value="Notlead">False</option>
+              </select>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formEdit.get('isLeader')?.errors?.required && formEdit.get('isLeader')?.touched">
+                Trưởng đơn vị chưa được chọn !
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label">Đơn vị: </label>
+          <div class="col-md-10 mt-2">
+            <div>
+              <input disabled class="form-control" type="text" formControlName="unit" value="{{formEdit.value.unit.name}}">
+
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formEdit.get('unit')?.errors?.required && formEdit.get('unit')?.touched">
+                Đơn vị chưa được chọn !
+              </small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+<!--  </div>-->
+
+  <div class="footer">
+    <div class="row">
+      <div class="col-4"></div>
+
+    <div class=" col-2 text-center m-0">
+      <button type="button " class="btn btn-success" (click)="update()" [disabled]="(!formEdit.valid) ||(checkHr() && formEdit.value.unit.id ==3)"  >Cập nhật</button>
+    </div>
+
+      <div class=" col-2 text-center m-0">
+        <button type="button " class="btn btn-success" (click)="activated()" [disabled]="(checkHr()) || (check1())"  >Phê duyệt</button>
+      </div>
+      <div class=" col-2 text-center m-0">
+        <button type="button " class="btn btn-success" (click)="deactivated()" [disabled]="!checkAcitve"  >Hủy kích hoạt</button>
+      </div>
+
+      <div class=" col-1 text-center m-0">
+        <button type="button " class="btn btn-success">Checkpoint</button>
+      </div>
+
+  </div>
+  </div>
+<!--</ng-template>-->
+</form>

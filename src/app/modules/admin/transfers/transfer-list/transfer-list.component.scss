@@ -1,0 +1,21 @@
+.table-infoUser th, td {
+  white-space : nowrap;
+}
+.table-infoUser th {
+  background-color: rgb(180, 231, 239);
+}
+
+.table-infoUser  td {
+  cursor: pointer;
+}
+.table-infoUser-div{
+  min-height: 300px;
+}
+li {
+  cursor: pointer;
+}
+.displayNone {
+   poiner-events: none;
+  opacity: 0.6;
+}
+

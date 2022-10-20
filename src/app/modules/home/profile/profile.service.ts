@@ -10,7 +10,7 @@ import {User} from "./profile.model";
 export class ProfileService {
 
 
-  private readonly profileAPI = `${environment.apiUrl}public/user/user-profile/`;
+  private readonly profileAPI = `${environment.apiUrl}public/user-profile/`;
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +29,10 @@ export class ProfileService {
     const formData = new FormData();
     formData.append("file", file, file.name);
     return this.http.post(this.profileAPI + "new-avata/" +id, formData)
+  }
+
+  findUserByUserId(userId: any):Observable<any>{
+    return this.http.get<any>(this.profileAPI  + userId)
   }
 
 }

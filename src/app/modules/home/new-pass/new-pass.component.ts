@@ -73,7 +73,6 @@ export class NewPassComponent implements OnInit {
       }
     });
     if (ckeck && !this.formPassword.errors){
-
       this.user.userName = this.username;
       this.user.password = this.formPassword.value.password;
       this.profileService.putChangePass(this.user).subscribe(

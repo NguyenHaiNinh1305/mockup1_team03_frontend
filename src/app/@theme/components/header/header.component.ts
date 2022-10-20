@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: any;
   picture;
-
+  userAvata = null;
   name=this.sessionService.getItem('auth-user')
 
   themes = [

@@ -1,0 +1,24 @@
+import { NbMenuItem } from '@nebular/theme';
+
+export const MENU_ITEMS: NbMenuItem[] = [
+  {
+    title: 'Trang chủ',
+    icon: 'home-outline',
+    link: '/admin/dashboard',
+    home: true,
+  },
+  {
+    title: 'Tính năng',
+    group: true,
+  },
+  {
+    title: 'Thông tin đợt điều chuyển',
+    icon: 'person-outline',
+    link: '/admin/transfer-list',
+  },
+  {
+    title: 'Sản phẩm',
+    icon: 'globe-2-outline',
+    link: '/home/product',
+  },
+];

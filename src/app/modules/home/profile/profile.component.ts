@@ -6,6 +6,7 @@ import { User } from './profile.model';
 import { ProfileService } from './profile.service';
 import {ToastrService} from "ngx-toastr";
 import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
+import {Router} from "@angular/router";
 
 
 export function validateDate(c: AbstractControl) {
@@ -31,7 +32,7 @@ export class ProfileComponent implements OnInit {
   formProfile: FormGroup;
   user: User;
   username: string;
-  urlAvaTa = "http://localhost:9090/api/public/user/user-profile/avata/";
+  urlAvaTa = "http://localhost:9090/api/public/user-profile/avata/";
   avataName:string;
   file: File = null;
   submited = false;
@@ -43,7 +44,8 @@ export class ProfileComponent implements OnInit {
     private primengConfig: PrimeNGConfig,
     private  toastr: ToastrService,
     private modalService: NgbModal,
-    config: NgbModalConfig
+    private router: Router,
+    config: NgbModalConfig,
   ) {config.backdrop = 'static';
     config.keyboard = false;}
 
@@ -144,12 +146,12 @@ export class ProfileComponent implements OnInit {
       this.profileService.putAvata(this.file,this.user.id).subscribe(
         (res)=>{
           this.avataName = res.object;
-          this.file = null;
           this.toastr.success("Cập nhật thành công");
         },error => {
           this.toastr.error(error.error.message);
         }
       )
     }
+    this.file = null;
   }
 }

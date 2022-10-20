@@ -9,6 +9,7 @@ import { SharedModule } from 'primeng/api';
 import { PrimengModule } from '../../shared/primeng.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NewPassComponent} from "./new-pass/new-pass.component";
+import { CkeckPointComponent } from './ckeck-point/ckeck-point.component';
 
 const routes: Routes = [{
   path: '',
@@ -26,6 +27,10 @@ const routes: Routes = [{
       path: 'change-password',
       component: NewPassComponent,
     },
+    {
+      path: 'chek-point',
+      component: CkeckPointComponent,
+    },
 
   ],
 }];
@@ -35,6 +40,7 @@ const routes: Routes = [{
     HomeComponent,
     ProfileComponent,
     NewPassComponent,
+    CkeckPointComponent,
   ],
   imports: [
     CommonModule,

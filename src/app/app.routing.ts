@@ -5,12 +5,20 @@ import { AuthGuard } from './@core/guards/auth.guard';
 import {LoginComponent} from "./modules/auth/login/login.component";
 import {FogotPassComponent} from "./modules/auth/fogot-pass/fogot-pass.component";
 import {ChangePasComponent} from "./modules/auth/change-pass/change-pas.component";
+import {AdminGuard} from "./@core/guards/admin.guard";
 
 export const routes: Routes = [
   {
     path: 'home',
     canActivate: [AuthGuard],
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+  },
+  {
+    path: 'admin',
+    canActivate: [AdminGuard],
+    loadChildren: () => {
+      return import('./modules/admin/admin.module').then(m => m.AdminModule);
+    },
   },
   {
     path: 'auth',
@@ -33,5 +41,6 @@ const config: ExtraOptions = {
   imports: [RouterModule.forRoot(routes, config)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule {
 }

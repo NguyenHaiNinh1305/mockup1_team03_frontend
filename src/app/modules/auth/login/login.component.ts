@@ -81,6 +81,7 @@ export class LoginComponent implements OnInit {
   }
 
   saveUserId(){
+
     let username = this.sessionService.getItem('auth-user')
     this.profileService.getProfile(username).subscribe(
       (res)=>{

@@ -112,6 +112,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return false;
   }
 
+
   getByUserName(username){
     this.profileService.getProfile(username).subscribe(
       (res)=>{

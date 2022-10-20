@@ -45,7 +45,6 @@
             </select>
           </div>
         </div>
-
       </div>
 
       <div class="form-group col-md-6">
@@ -53,8 +52,6 @@
           <label class="label col-3 col-form-label">Email</label>
           <div class="col-9">
             <input type="text" class="form-control" formControlName="email">
-
-
             <div class="text-danger pt-1"  *ngIf="formProfile.controls.email.errors
                                    && formProfile.controls.email.touched || submited">
               <div *ngIf="formProfile.controls.email.errors?.required">Không được để trống</div>

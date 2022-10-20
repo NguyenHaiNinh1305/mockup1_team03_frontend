@@ -12,9 +12,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
-    title: 'Người dùng',
+    title: 'Thông tin đợt điều chuyển',
     icon: 'person-outline',
-    link: '/admin/user',
+    link: '/admin/transfer-list',
   },
   {
     title: 'Sản phẩm',

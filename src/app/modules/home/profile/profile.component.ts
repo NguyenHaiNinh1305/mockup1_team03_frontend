@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
     private  toastr: ToastrService,
     private modalService: NgbModal,
     private router: Router,
-    config: NgbModalConfig
+    config: NgbModalConfig,
   ) {config.backdrop = 'static';
     config.keyboard = false;}
 
@@ -146,12 +146,12 @@ export class ProfileComponent implements OnInit {
       this.profileService.putAvata(this.file,this.user.id).subscribe(
         (res)=>{
           this.avataName = res.object;
-          this.file = null;
           this.toastr.success("Cập nhật thành công");
         },error => {
           this.toastr.error(error.error.message);
         }
       )
     }
+    this.file = null;
   }
 }

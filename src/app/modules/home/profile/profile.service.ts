@@ -31,4 +31,8 @@ export class ProfileService {
     return this.http.post(this.profileAPI + "new-avata/" +id, formData)
   }
 
+  findUserByUserId(userId: any):Observable<any>{
+    return this.http.get<any>(this.profileAPI  + userId)
+  }
+
 }

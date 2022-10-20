@@ -1,0 +1,19 @@
+table th, td {
+  white-space : nowrap;
+  border: 0.5px solid #626060;
+  //width:170px;
+}
+.table-transfer-info{
+
+}
+table th {
+  background-color: rgb(180, 231, 239);
+
+}
+.form-control:disabled, .form-control[readonly] {
+  background-color: #ffffff;
+  opacity: 1;
+}
+.formSort_div {
+  padding: 0px!important;
+}

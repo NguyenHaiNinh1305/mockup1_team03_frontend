@@ -17,6 +17,7 @@ import {UserService} from "../../../@core/services/user.service";
 export class UserComponent implements OnInit {
   formAdd: FormGroup;
   formSearch: FormGroup;
+  formSort:FormGroup;
   datas: User[] = [];
   datas1: Unit[] = [];
   public messages = '';
@@ -44,6 +45,7 @@ export class UserComponent implements OnInit {
     this.pagination(this.indexPage);
     this.getAllUnit();
     this.initFormSearch();
+    this.initFormSort()
 
     this.formAdd = this.fb.group({
       userName: ['', [Validators.required, Validators.maxLength(50)]],
@@ -96,7 +98,7 @@ export class UserComponent implements OnInit {
       this.toastr.error("Không được chọn trạng thái trưởng đơn vị cho hr")
       return;
     }
-    this.userService.create(this.user).subscribe(
+    this.userService.create(this.idUser,this.user).subscribe(
       res => {
         this.toastr.success(res.message);
         this.ngOnInit();
@@ -199,6 +201,7 @@ export class UserComponent implements OnInit {
     if (page < 0) {
       page = 0;
     }
+    console.log(this.sortBy)
     this.indexPage = page
     this.userService.getPageTransfer(this.indexPage, this.idUser,
       this.sortBy, this.descAsc, this.userSearch)
@@ -227,6 +230,12 @@ export class UserComponent implements OnInit {
     });
   }
 
+  initFormSort() {
+    this.formSort = this.fb.group({
+      sort: '',
+    });
+  }
+
 
   FillValueSearch() {
     const formSearchValue = this.formSearch.value;
@@ -248,6 +257,20 @@ export class UserComponent implements OnInit {
     this.pagination(0);
     this.initFormSearch();
   }
+
+
+  FillValueSort() {
+    console.log(this.formSort.value.sort);
+    this.sortBy =this.formSort.value.sort;
+
+  }
+
+onSumitSort(){
+this.FillValueSort();
+  this.descAsc == 'asc' ? this.descAsc = 'desc' : this.descAsc = 'asc';
+  console.log(this.descAsc)
+   this.pagination(0);
+}
 
 
 

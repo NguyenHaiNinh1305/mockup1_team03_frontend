@@ -192,4 +192,13 @@ export class UserEditComponent implements OnInit {
   }
 
 
+  checkValueHr(){
+    if(this.formEdit.value.unit.id==3){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 }

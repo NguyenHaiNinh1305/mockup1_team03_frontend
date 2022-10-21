@@ -192,8 +192,8 @@
             <div>
 
               <select id="isLeader" class="form-control" formControlName="isLeader">
-                <option [disabled]="check1"   value="Lead">True</option>
-                <option [disabled]="check1"   value="Notlead">False</option>
+                <option [disabled]="check1()|| (checkDmHr()&&checkValueHr())"   value="Lead">True</option>
+                <option [disabled]="check1()"   value="Notlead">False</option>
               </select>
               <small class="col alert text-danger" role="alert"
                      *ngIf="formEdit.get('isLeader')?.errors?.required && formEdit.get('isLeader')?.touched">
@@ -231,10 +231,10 @@
     </div>
 
       <div class=" col-2 text-center m-0">
-        <button type="button " class="btn btn-success" (click)="activated()" [disabled]="(checkHr()) || (check1())"  >Phê duyệt</button>
+        <button type="button " class="btn btn-success" (click)="activated()" [disabled]=" (check1()) ||(checkHr()&&formEdit.value.unit.id==3)"  >Phê duyệt</button>
       </div>
       <div class=" col-2 text-center m-0">
-        <button type="button " class="btn btn-success" (click)="deactivated()" [disabled]="!checkAcitve"  >Hủy kích hoạt</button>
+        <button type="button " class="btn btn-success" (click)="deactivated()" [disabled]="(!checkAcitve) ||(checkHr()&&formEdit.value.unit.id==3)"  >Hủy kích hoạt</button>
       </div>
 
       <div class=" col-1 text-center m-0">

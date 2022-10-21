@@ -18,9 +18,9 @@ export class userService {
     return this.http.get<any>(this.userAPI)
   }
 
-  public create(user: User): Observable<any> {
+  public create(idUser:any,user: User): Observable<any> {
 
-    return this.http.post(`${this.userAPI}`, user);
+    return this.http.post(`${this.userAPI}?idUser=` +idUser, user);
   }
 
   public getAllUnit():Observable<any>{

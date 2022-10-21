@@ -2,7 +2,25 @@
 <div class="container">
   <div class="row">
       <div class="col-8">
+        <div class="row">
+        <form [formGroup]="formSort" class="col-8" >
+          <select  class="form-control" formControlName="sort">
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="literacy">Literacy</option>
+            <option value="position">Position</option>
+            <option value="salary">Salary</option>
+            <option value="birthDay">Date</option>
+            <option value="unit">Unit</option>
+          </select>
+        </form>
+
+          <div class="col-4">
+            <button class="btn btn-primary" (click)="onSumitSort()">Sắp xếp</button>
+          </div>
+        </div>
       </div>
+
     <div class="col-2">
       <button class="btn btn-primary" (click)="openLg1(content1)">Tìm kiếm</button>
     </div>
@@ -162,7 +180,7 @@
   </nav>
 </div>
 
-<form novalidate  (ngSubmit)="onSubmit()" [formGroup]="formAdd">
+<form novalidate  [formGroup]="formAdd">
   <ng-template #content let-modal>
     <div class="modal-header">
       <h2 class="container-fluid text-center lead fw-normal" style="color: #3c763d">Thêm mới nhân viên</h2>
@@ -397,7 +415,7 @@
 
     <div class="modal-footer">
       <div>
-        <button type="button" class="btn btn-success" type="submit"  [disabled]="!formAdd.valid"  >Thêm mới</button>
+        <button type="button" class="btn btn-success" type="submit" (click)="onSubmit()" [disabled]="!formAdd.valid"  >Thêm mới</button>
       </div>
     </div>
   </ng-template>

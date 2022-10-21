@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {NewPassComponent} from "./new-pass/new-pass.component";
 import { CkeckPointComponent } from './ckeck-point/ckeck-point.component';
 
+
 const routes: Routes = [{
   path: '',
   component: HomeComponent,

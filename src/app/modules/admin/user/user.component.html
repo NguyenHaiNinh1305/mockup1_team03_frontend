@@ -1,0 +1,424 @@
+
+<div class="container">
+  <div class="row">
+      <div class="col-8">
+        <div class="row">
+        <form [formGroup]="formSort" class="col-8" >
+          <select  class="form-control" formControlName="sort">
+            <option value="name">Name</option>
+            <option value="email">Email</option>
+            <option value="literacy">Literacy</option>
+            <option value="position">Position</option>
+            <option value="salary">Salary</option>
+            <option value="birthDay">Date</option>
+            <option value="unit">Unit</option>
+          </select>
+        </form>
+
+          <div class="col-4">
+            <button class="btn btn-primary" (click)="onSumitSort()">Sắp xếp</button>
+          </div>
+        </div>
+      </div>
+
+    <div class="col-2">
+      <button class="btn btn-primary" (click)="openLg1(content1)">Tìm kiếm</button>
+    </div>
+    <div class="col-2 text-center m-0">
+      <button class="btn btn-primary " style="float: right;" (click)="openLg(content)">Thêm mới</button>
+    </div>
+
+    <form  [formGroup]="formSearch">
+      <ng-template #content1 let-modal>
+        <div class="modal-header">
+          <h2 class="container-fluid text-center lead fw-normal" style="color: #3c763d">Tìm kiếm  nhân viên</h2>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-6">
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Họ và tên: </label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" formControlName="name"  placeholder="Ex. Nguyễn Văn A">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Email: </label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" formControlName="email" placeholder="Ex. 1123@mail.com">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Trình độ:</label>
+                <div class="col-md-10">
+                  <select class="form-control" formControlName="literacy">
+                    <option value="Thạc Sĩ">Thạc sĩ</option>
+                    <option value="Tiến Sĩ">Tiến Sĩ</option>
+                    <option value="Kỹ Sư">Kỹ Sư</option>
+                    <option value="Đại Học">Đại Học</option>
+                    <option value="Cao Đẳng">Cao Đẳng</option>
+                  </select>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-6">
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Lương:</label>
+                <div class="col-md-10">
+                  <input class="form-control" type="text" formControlName="salary">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Ngày sinh: </label>
+                <div class="col-md-10">
+                  <input class="form-control" type="date" formControlName="birthDay">
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <label class="col-md-2 col-form-label">Đơn vị: </label>
+                <div class="col-md-10 mt-2">
+                  <div>
+                    <select id="unit" class="form-control" formControlName="unit">
+                      <option *ngFor="let item of datas1" [value]="item.id">{{item.name}}
+                      </option>
+
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div>
+            <button type="button" class="btn btn-success" type="submit" (click)="onSubmit1()" > Tìm kiếm</button>
+          </div>
+        </div>
+      </ng-template>
+
+    </form>
+
+
+    <div class="row mt-2 ml-0">
+    <div class="row mt-2 ml-3">
+      <table class="table table-responsive table-bordered">
+        <thead>
+        <tr>
+          <th class="text-center" scope="col">Mã NV</th>
+          <th class="text-center" scope="col">Tên nhân viên</th>
+          <th class="text-center" scope="col">Email</th>
+          <th class="text-center" scope="col">SDT</th>
+          <th class="text-center" scope="col">Lương</th>
+          <th class="text-center" scope="col">Giới tính</th>
+          <th class="text-center" scope="col">Chức vụ</th>
+          <th class="text-center" scope="col">Ngày sinh</th>
+          <th class="text-center" scope="col">Trạng thái</th>
+          <th class="text-center" scope="col">Đơn vị làm việc</th>
+<!--          <th colspan="2" style="text-align: center">-->
+<!--            Thao tác-->
+<!--          </th>-->
+        </tr>
+        </thead>
+        <tbody *ngIf="datas">
+        <tr  *ngFor="let item of datas" (click)="infoUser(item.id)">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.salary}}</td>
+          <td>{{item.gender}}</td>
+          <td>{{item.position}}</td>
+          <td>{{item.birthDay}}</td>
+          <td *ngIf="item.active">Activated</td>
+          <td *ngIf="!item.active">Deactivated</td>
+          <td *ngIf="item.unit">{{item.unit.name}}</td>
+<!--          <td>-->
+<!--            <span class="btn btn-success mr-2">View</span>-->
+<!--          </td>-->
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+
+  </div>
+</div>
+<div class="col d-flex justify-content-center">
+
+  <nav class="pt-3 " aria-label="...">
+    <ul class="pagination justify-content-end">
+      <li class="page-item " [ngClass]="indexPage == 0?'disabled':''">
+        <a class="page-link" (click)="preNextPage('pre')">Previous</a>
+      </li>
+
+      <li *ngFor="let pageNumber of [].constructor(Page['totalPages']);let i = index"
+          class="page-item" [ngClass]="indexPage == i?'active':''">
+        <a class="page-link" (click)="pagination(i)">{{i + 1}}</a>
+      </li>
+
+      <li class="page-item" [ngClass]="(Page['totalPages'] - 1) == indexPage?'disabled':''">
+        <a class="page-link" (click)="preNextPage('next')">   Next    </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<form novalidate  [formGroup]="formAdd">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h2 class="container-fluid text-center lead fw-normal" style="color: #3c763d">Thêm mới nhân viên</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+
+      <div class="row">
+        <div class="col-6">
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Họ và tên: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="name"  placeholder="Ex. Nguyễn Văn A">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('name')?.errors?.required && formAdd.get('name')?.touched">
+                Họ và tên không được để trống !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Email: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="email" placeholder="Ex. 1123@mail.com">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('email')?.errors?.required && formAdd.get('email')?.touched">
+                Email không được để trống !
+              </small>
+
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('email')?.errors?.email && formAdd.get('email')?.touched">
+                Định dạng email chưa đúng !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Tên người dùng: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="userName">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('userName')?.errors?.required && formAdd.get('userName')?.touched">
+                Tên người dùng không được để trống !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Mật khẩu:</label>
+            <div class="col-md-10">
+              <input class="form-control" type="password" formControlName="password" placeholder="Ex. 123@aaAA12">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('password')?.errors?.required && formAdd.get('password')?.touched">
+                Mật khẩu không được để trống !
+              </small>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('password')?.errors?.pattern && formAdd.get('password')?.touched">
+                Mật khẩu phải có 8 ký tự trở lên, bao gồm cả chữ, cả số và cả kí tự đặc biệt !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">CCCD:</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="cccd">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('cccd')?.errors?.required && formAdd.get('cccd')?.touched">
+                CCCD không được để trống !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Trình độ:</label>
+            <div class="col-md-10">
+              <select class="form-control" formControlName="literacy">
+                <option value="Thạc Sĩ">Thạc sĩ</option>
+                <option value="Tiến Sĩ">Tiến Sĩ</option>
+                <option value="Kỹ Sư">Kỹ Sư</option>
+                <option value="Đại Học">Đại Học</option>
+                <option value="Cao Đẳng">Cao Đẳng</option>
+              </select>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('literacy')?.errors?.required && formAdd.get('literacy')?.touched">
+                Trình độ chưa được chọn!
+              </small>
+
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">SDT: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="phoneNumber">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('phoneNumber')?.errors?.required && formAdd.get('phoneNumber')?.touched">
+                Số điện thoại không được để trống !
+              </small>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('phoneNumber')?.errors?.pattern && formAdd.get('phoneNumber')?.touched">
+                Định dạng số điện thoại chưa đúng !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Quê quán: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="homeTown">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('homeTown')?.errors?.required && formAdd.get('homeTown')?.touched">
+                Quê quán không được để trống !
+              </small>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6">
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Lương:</label>
+            <div class="col-md-10">
+              <input class="form-control" type="text" formControlName="salary">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('salary')?.errors?.required && formAdd.get('salary')?.touched">
+                Lương không được để trống !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Giới tính:</label>
+            <div class="col-md-10 mt-2 ">
+              <select id="gender" class="form-control" formControlName="gender">
+                <option  value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+                <option value="Khác">Khác</option>
+              </select>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('gender')?.errors?.required && formAdd.get('gender')?.touched">
+                Giới tính chưa được chọn  !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Chức vụ:</label>
+            <div class="col-md-10">
+              <select id="position" class="form-control" formControlName="position">
+                <option value="Intern">Intern</option>
+                <option value="Dev">Dev</option>
+                <option value="Tester">Tester</option>
+                <option value="Leader">Leader</option>
+                <option value="PM">PM</option>
+                <option value="DM">DM</option>
+                <option value="HR">HR</option>
+              </select>
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('position')?.errors?.required && formAdd.get('position')?.touched">
+                Chức vụ chưa được chọn !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Ngày sinh: </label>
+            <div class="col-md-10">
+              <input class="form-control" type="date" formControlName="birthDay">
+              <small class="col alert text-danger" role="alert"
+                     *ngIf="formAdd.get('birthDay')?.errors?.required && formAdd.get('birthDay')?.touched">
+                Ngày sinh không được để trống !
+              </small>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Trạng thái: </label>
+            <div class="col-md-10 mt-2">
+              <div>
+                <select id="isActive" class="form-control" formControlName="isActive">
+                  <option [disabled]="check()"  value="Active">Activated</option>
+                  <option value="NotActive">Deactivated</option>
+                </select>
+                <small class="col alert text-danger" role="alert"
+                       *ngIf="formAdd.get('isActive')?.errors?.required && formAdd.get('isActive')?.touched">
+                 Trạng thái chưa được chọn !
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Trưởng đơn vị: </label>
+            <div class="col-md-10 mt-2">
+              <div>
+                <select  id="isLeader" class="form-control" formControlName="isLeader">
+                  <option [disabled]="check() "  value="Lead">True</option>
+                  <option  value="Notlead">False</option>
+                </select>
+                <small class="col alert text-danger" role="alert"
+                       *ngIf="formAdd.get('isLeader')?.errors?.required && formAdd.get('isLeader')?.touched">
+                 Trưởng đơn vị chưa được chọn !
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label">Đơn vị: </label>
+            <div class="col-md-10 mt-2">
+              <div>
+                <select id="unit" class="form-control" formControlName="unit">
+                  <option *ngFor="let item of datas1" [value]="item.id" [disabled]="(item.id==3? true:false) && checkHr()">{{item.name}}
+                  </option>
+
+                </select>
+
+                <small class="col alert text-danger" role="alert"
+                       *ngIf="formAdd.get('unit')?.errors?.required && formAdd.get('unit')?.touched">
+                Đơn vị chưa được chọn !
+                </small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <div>
+        <button type="button" class="btn btn-success" type="submit" (click)="onSubmit()" [disabled]="!formAdd.valid"  >Thêm mới</button>
+      </div>
+    </div>
+  </ng-template>
+</form>
+
+

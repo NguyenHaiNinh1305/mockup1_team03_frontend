@@ -25,6 +25,7 @@ import {AvatarModule} from "primeng/avatar";
 import {ButtonModule} from "primeng/button";
 import {NgModule} from "@angular/core";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatTableModule} from "@angular/material/table";
 // import {AuthInterceptor} from "./interceptor/auth-interceptor.js";
  // import {AuthInterceptor} from "./interceptor/auth-interceptor.js";
 
@@ -61,6 +62,7 @@ const configToast: any = {
     ButtonModule,
     FormsModule,
     NgbModule,
+    MatTableModule
   ],
   // providers: [
   //   {

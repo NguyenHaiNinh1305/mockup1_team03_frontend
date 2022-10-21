@@ -19,8 +19,8 @@ export class AdminGuard implements CanActivate {
 
     let role = jwtDecode.auth.split(',')
     if (localStorage.getItem('auth-token')
-           && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
-               || role.includes('ROLE_HR'))) {
+      && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
+        || role.includes('ROLE_HR'))) {
 
       return true;
     }

@@ -59,16 +59,19 @@ export class LoginComponent implements OnInit {
           this.tokenService.saveToken(data.token);
           const jwtDecode = this.userService.getDecodedAccessToken();
           this.tokenService.saveUser(jwtDecode.sub);
-          this.saveUserId();
-
-          // them dieu huong ve trang admin neu co quyen
           let role = jwtDecode.auth.split(',')
           if (localStorage.getItem('auth-token')
             && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
-              || role.includes('ROLE_HR'))) {
+              || role.includes('ROLE_HR') || role.includes('ROLE_DM_HR'))) {
             this.router.navigate(['/admin/']);
             return;
           }
+          this.saveUserId();
+          this.saveUserId();
+
+          // them dieu huong ve trang admin neu co quyen
+          this.saveUserId();
+
           // this.roles = this.tokenService.getUser().roles;
           this.router.navigate(['/home/']);
         },
@@ -81,12 +84,11 @@ export class LoginComponent implements OnInit {
   }
 
   saveUserId() {
-
     let username = this.sessionService.getItem('auth-user')
     this.profileService.getProfile(username).subscribe(
       (res) => {
         localStorage.setItem("id-user", res.object.id);
       })
-
   }
+
 }

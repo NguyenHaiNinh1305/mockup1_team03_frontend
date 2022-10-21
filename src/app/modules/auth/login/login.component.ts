@@ -70,6 +70,9 @@ export class LoginComponent implements OnInit {
           this.saveUserId();
 
           // them dieu huong ve trang admin neu co quyen
+          this.saveUserId();
+
+          // this.roles = this.tokenService.getUser().roles;
           this.router.navigate(['/home/']);
         },
       );
@@ -87,6 +90,5 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("id-user", res.object.id);
       })
   }
-
 
 }

@@ -19,7 +19,6 @@ import { TransferListComponent } from './transfers/transfer-list/transfer-list.c
 import { TransferInformationComponent } from './transfers/transfer-information/transfer-information.component';
 import { TransferUpdateComponent } from './transfers/transfer-update/transfer-update.component';
 
-
 const routes: Routes = [{
   path: '',
   component: AdminComponent,

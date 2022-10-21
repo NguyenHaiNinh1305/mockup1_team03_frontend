@@ -256,6 +256,7 @@ export class UserComponent implements OnInit {
     this.FillValueSearch();
     this.pagination(0);
     this.initFormSearch();
+    this.modalService.dismissAll();
   }
 
 

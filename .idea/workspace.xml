@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="11ab3848-3aae-40aa-b4a6-1898c05af8de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/10.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/14.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/16.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/16.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/17.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/17.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/2.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/7.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/a72ace5eaf271dc35e894a469c479160cc68a360/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/0384f90a43c02ffc337e487288a7bd69.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/050105785400d42a9db86739ddcf1083.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/082ae3e43e6c5fd981f028e33ee3ab4e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/0aa4cfe683af80842bcee0938a343ef2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/0c3fb9676aba3bdc9e64e22359a17331.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/1003986a3864dd971c897cf833112e10.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/22a578b63b5244a9a4353bcc4cd6bf17.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/2ce08b04200f7dff76d5edc1d72eb959.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/2ec7b813f172aa87658dd211734c67a1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/31cbae4dcfd8e730cd2c1498cc8137fe.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/3823b2f1fadc37bafabcd9368bc23d61.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/3912fd767e4cf015fbd61f1ecf9a2127.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/39d7353a1c02f9823ea788718e9c9962.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/3e3420dd1d4df7fb3a41ba33e206a66c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/45746dbe46b5281cdb4f98886743b422.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/46b9a319921e109d8b03793cfdf5196d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/483cc126af23a13328eef25d565fe034.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/4b57c30ca4278d52d893d6b3e44d186a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/4f0ff42138bf9726f34360c7395a4e47.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/5575048080283f163fb158ddff22eb4f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/56ef2069f30f12f51a4d7640c2b35909.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/691186c602adcd920af0233ae23950aa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/6bcdf60e06cd6abe2e83ef1d7a08f0f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/6f05ec36a02456257b3d18f5b343cfd1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/7476a91e9fe25ec9b60ea2c19ac64ce8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/7599e88c5e74ffecbf5728f21609a1ea.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/84e30335bdbb0fee2811bb0edd61522f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/8733796eeacb8c7f524903e6fa7495cd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/89edd8bb913d9d21ae55fcca0cff4041.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/89f295b3f9c2dcc84044fe7dab7abd08.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/8a32307e56dc951d166b062663adcdc3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/92793f4dfc89685ee681792f85772fa8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/9539fef239540f8f59a36438efc9516a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/9686b4076bec22c635919ae753d4d5fd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/96bf8ffa97129a0b6c5b579777ce9777.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/976024cf04fa5d12ddc214c3b50dd5ba.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/99286bf715263766edb76a6dba84c4ed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/9dd6c12ba69ba9c9835a462140285829.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/9f4ffaa0caad80f12816ddfe74b06b40.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/a4ca13049bbfca8551ac7ff9de86cde1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/b0585d1a2121c8be98910143855b981b.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/b0ebe63062c53f3238d00507c39fd2fc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/b30e73c1ab620999c1886ff768ef65ae.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/b323b5bfd9bcfb22e33a41e2ffb78d12.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/b4f6cabd3d4c16b97e22a0c6cf5ea14d.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/ba05da31ae0a4852645b986bebe0c4ed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/be8c9e62f0a8345c30fbfb1b4b7db108.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/cb68921ba708e2f3c5dccb8a2d38ce46.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/d19477c716c8e414291e1cd053ca266a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/d837d866d469da9a6d04ae548d12f428.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/de41e71fa0182f6200ce5b9339ae2cb0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/e2988a94a19c1ec8476cb3322be5a380.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/e3a217de4451302880a435b1771b34b4.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/e6d4dd8c094017a7257dd100272329cf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/f5689f1946dceb2df37c96615d595ac5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.angular/cache/babel-webpack/f6f46137881f2bbe7851b9371d3d0944.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/@core/guards/admin.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/@core/guards/admin.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/admin.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/admin.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/pages-menu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/pages-menu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/auth/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/home/home.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/home/home.module.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectId" id="2FvV3QTdecObMbFKtJUVlckAvRh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/DATN_FE/Eternal_FE_ADMIN" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\node_modules\stylelint" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="ts.external.directory.path" value="F:\Mockup3\FontEnd\mockup1_team03_frontend\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\src\app\modules\home" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (ngx-admin-demo)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (ngx-admin-demo-e2e)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11ab3848-3aae-40aa-b4a6-1898c05af8de" name="Default Changelist" comment="" />
+      <created>1665372344712</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665372344712</updated>
+      <workItem from="1665372347110" duration="366000" />
+      <workItem from="1665372822898" duration="881000" />
+      <workItem from="1665374190383" duration="285000" />
+      <workItem from="1665375517669" duration="1642000" />
+      <workItem from="1665377242169" duration="59000" />
+      <workItem from="1665384564861" duration="429000" />
+      <workItem from="1665385331618" duration="2643000" />
+      <workItem from="1665389115531" duration="628000" />
+      <workItem from="1665391661533" duration="4375000" />
+      <workItem from="1665397972670" duration="1741000" />
+      <workItem from="1665408529028" duration="1100000" />
+      <workItem from="1665409670580" duration="2105000" />
+      <workItem from="1665411797029" duration="991000" />
+      <workItem from="1665412812971" duration="1622000" />
+      <workItem from="1665414458733" duration="853000" />
+      <workItem from="1665415331910" duration="1002000" />
+      <workItem from="1665416384875" duration="1025000" />
+      <workItem from="1665417514870" duration="1196000" />
+      <workItem from="1665422569962" duration="196000" />
+      <workItem from="1665451734052" duration="180000" />
+      <workItem from="1665453458172" duration="10175000" />
+      <workItem from="1665470091508" duration="10843000" />
+      <workItem from="1665484897706" duration="481000" />
+      <workItem from="1665485399383" duration="1065000" />
+      <workItem from="1665495212347" duration="9067000" />
+      <workItem from="1665508821763" duration="2166000" />
+      <workItem from="1665538379828" duration="10927000" />
+      <workItem from="1665556581081" duration="3751000" />
+      <workItem from="1665561184691" duration="595000" />
+      <workItem from="1665561844796" duration="95000" />
+      <workItem from="1666254539992" duration="1933000" />
+      <workItem from="1666256521806" duration="450000" />
+      <workItem from="1666348067157" duration="2325000" />
+      <workItem from="1666363534531" duration="53000" />
+      <workItem from="1666365551127" duration="910000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

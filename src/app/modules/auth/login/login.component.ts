@@ -8,6 +8,7 @@ import {UserService} from "../../../@core/services/user.service";
 import {SessionService} from "../../../@core/services/session.service";
 import {ProfileService} from "../../home/profile/profile.service";
 
+
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.component.html',
@@ -19,7 +20,6 @@ export class LoginComponent implements OnInit {
   isSubmitted = false;
   roles: string[] = [];
   isLoggedIn = false;
-
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -67,7 +67,9 @@ export class LoginComponent implements OnInit {
             return;
           }
           this.saveUserId();
-          // this.roles = this.tokenService.getUser().roles;
+          this.saveUserId();
+
+          // them dieu huong ve trang admin neu co quyen
           this.router.navigate(['/home/']);
         },
       );
@@ -85,5 +87,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("id-user", res.object.id);
       })
   }
+
 
 }

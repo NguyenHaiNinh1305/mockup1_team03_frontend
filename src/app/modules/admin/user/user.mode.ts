@@ -16,7 +16,7 @@ export interface User {
   leader?: boolean;
   birthDay?: Date;
   delete?: boolean;
-  role?h
+  role?
   active?: boolean;
   unit?: Unit;
 }

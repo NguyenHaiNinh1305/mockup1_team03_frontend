@@ -17,6 +17,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/admin/user',
   },
   {
+    title: 'Thông tin đợt điều chuyển',
+    icon: 'person-outline',
+    link: '/admin/transfer-list',
+  },
+  {
     title: 'Sản phẩm',
     icon: 'globe-2-outline',
     link: '/home/product',

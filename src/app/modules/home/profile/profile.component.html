@@ -153,7 +153,7 @@
       <button class="px-4 pr-4 btn btn-primary" (click)="open(content)"  style="float: right;">Save</button>
     </div>
   </form>
-<!--              Modal                 -->
+  <!--              Modal                 -->
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
     </div>
@@ -162,14 +162,10 @@
     </div>
     <div class="modal-footer">
       <div (click)="submit()">
-          <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
+        <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
       </div>
       <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
     </div>
   </ng-template>
   <!--              Modal                 -->
 </p-card>
-
-
-
-

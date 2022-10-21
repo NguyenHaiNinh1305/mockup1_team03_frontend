@@ -13,6 +13,12 @@ import {MatFormField, MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioGroup, MatRadioModule} from "@angular/material/radio";
 import {MatSelectModule} from "@angular/material/select";
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { TransferComponent } from './transfers/transfer/transfer.component';
+import {ProfileComponent} from "../home/profile/profile.component";
+import { TransferListComponent } from './transfers/transfer-list/transfer-list.component';
+import { TransferInformationComponent } from './transfers/transfer-information/transfer-information.component';
+import { TransferUpdateComponent } from './transfers/transfer-update/transfer-update.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -25,7 +31,23 @@ const routes: Routes = [{
     {
       path: 'user-edit/:id',
       component: UserEditComponent,
-    }
+    },
+      {
+      path: 'transfer/:id',
+      component: TransferComponent,
+    },
+    {
+      path: 'transfer-list',
+      component: TransferListComponent,
+    },
+    {
+      path: 'transfer-information/:id',
+      component: TransferInformationComponent,
+    },
+    {
+      path: 'transfer-update/:id',
+      component: TransferUpdateComponent,
+    },
   ],
 }];
 
@@ -35,6 +57,11 @@ const routes: Routes = [{
     AdminComponent,
     UserComponent,
     UserEditComponent,
+     AdminComponent,
+     TransferComponent,
+     TransferListComponent,
+     TransferInformationComponent,
+     TransferUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -48,6 +75,7 @@ const routes: Routes = [{
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
+    SharedModule
   ]
 })
 export class AdminModule { }

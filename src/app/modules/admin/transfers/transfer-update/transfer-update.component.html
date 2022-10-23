@@ -1,6 +1,8 @@
-<h1>Tạo đợt điều chuyển</h1>
 
-<p-card>
+<div class="loader" *ngIf="showSpinner | async">
+</div>
+<p-card *ngIf="!(showSpinner | async)">
+  <h1>Tạo đợt điều chuyển</h1>
   <form [formGroup]="formTransfer" n>
 
     <div class="form-row">

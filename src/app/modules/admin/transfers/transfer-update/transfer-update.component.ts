@@ -10,6 +10,7 @@ import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../@core/services/user.service";
 import {TransferService} from "../transfer/transfer.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'ngx-transfer-update',
@@ -23,7 +24,7 @@ export class TransferUpdateComponent implements OnInit {
   units: Unit[];
   id: any;
   transfer: Transfer;
-
+  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     private sessionService: SessionService,
@@ -84,13 +85,15 @@ export class TransferUpdateComponent implements OnInit {
 }
   submit() {
     this.addTransfer()
-    console.log(this.transfer);
     const idUser = localStorage.getItem('id-user')
+    this.showSpinner.next(true);
     this.transferService.updateTransfer(idUser,this.transfer).subscribe(res => {
+      this.showSpinner.next(false);
       this.toastr.success('Cập nhật thành công')
       const url = '/admin/transfer-information/' + this.transfer.id;
       this.router.navigate([url])
     }, error => {
+      this.showSpinner.next(false);
       this.toastr.error("Cập nhật không thành công vui lòng kiểm tra lại thông tin")
     })
   }

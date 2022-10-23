@@ -1,8 +1,9 @@
-<h1>Tạo đợt điều chuyển</h1>
-
-<p-card>
+<div class="loader" *ngIf="showSpinner | async">
+</div>
+<p-card *ngIf="!(showSpinner | async)" >
+<div >
+  <h1>Tạo đợt điều chuyển</h1>
   <form [formGroup]="formTransfer" >
-
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputname">Tên đợt chuyển</label>
@@ -80,7 +81,7 @@
       </tbody>
     </table>
   </div>
-
+</div>
   <!--              Modal                 -->
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
@@ -94,6 +95,9 @@
       </div>
       <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
     </div>
+
+
+
   </ng-template>
   <!--      end Modal                 -->
 </p-card>

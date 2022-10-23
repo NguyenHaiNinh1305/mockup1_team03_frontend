@@ -43,10 +43,10 @@ export class TransferService {
     return this.http.put<any>(this.transferAPI + '/update/' + userId,transfer);
   }
 
-  getPageTransfer(page:any,userID,transferSearch,sortByValue,descAsc):Observable<any>{
+  getPageTransfer(page:any,userID,transferSearch,size):Observable<any>{
     return this.http
                .put<any>
-               (  `${this.transferAPI}/page/?page=${page}&userID=${userID}&sortByValue=${sortByValue}&descAsc=${descAsc}`
+               (  `${this.transferAPI}/page/?page=${page}&userID=${userID}&size=${size}`
                          ,transferSearch);
   }
 

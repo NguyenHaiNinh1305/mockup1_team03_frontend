@@ -1,4 +1,6 @@
-<p-card>
+<div class="loader" *ngIf="showSpinner | async">
+</div>
+<p-card *ngIf="!(showSpinner | async)">
   <h1>Thông tin chi tiết đợt chuyển</h1>
   <div *ngIf="transfer" class="form-row">
     <div class="col-12 row">

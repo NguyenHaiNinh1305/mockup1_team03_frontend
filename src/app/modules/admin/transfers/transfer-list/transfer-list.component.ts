@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {Transfer, TransferSearchDTO} from "../transfer/transfer.model";
+import {SortByValuesDTO, Transfer, TransferSearchDTO} from "../transfer/transfer.model";
 import {TransferService} from "../transfer/transfer.service";
 import {UserService} from "../../../../@core/services/user.service";
 import {Unit, User} from "../../../home/profile/profile.model";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'ngx-transfer-list',
@@ -23,9 +24,14 @@ export class TransferListComponent implements OnInit {
   transferUser: User;
   units: Unit[];
   showHiden = false;
-  formSort: FormGroup;
-  sortBy: string ;
-  descAsc: string = 'desc'
+  nameArrow = true;
+  transferUserArrow= true;
+  unitOldArrow= true;
+  unitNewArrow= true;
+  succeeDayArrow= true;
+  statusTransferArrow= true;
+  reasonArrow= true;
+  size = 5;
 
   constructor(
     private  transferService: TransferService,
@@ -36,13 +42,15 @@ export class TransferListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.transferSearch.sortByValuesDTOList =[];
     this.userId = localStorage.getItem('id-user')
     this.pagination(this.indexPage);
     this.initFormSearch();
-    this.initFormSort()
     this.transferService.getUnits().subscribe(res => {
       this.units = res.object;
     })
+
   }
 
   initFormSearch() {
@@ -53,12 +61,6 @@ export class TransferListComponent implements OnInit {
       unitNew: '',
       succeeDay: '',
       reason: '',
-    });
-  }
-
-  initFormSort() {
-    this.formSort = this.fb.group({
-      typeSort: '',
     });
   }
 
@@ -73,11 +75,11 @@ export class TransferListComponent implements OnInit {
     }
     this.indexPage = page
     this.transferService.getPageTransfer(this.indexPage, this.userId
-      , this.transferSearch, this.sortBy, this.descAsc)
+      , this.transferSearch,this.size)
       .subscribe(res => {
         this.transferList = res.object.content;
         this.Page = res.object;
-        console.log(this.Page)
+      },error => {
       })
   }
 
@@ -115,9 +117,57 @@ export class TransferListComponent implements OnInit {
     this.showHiden = !this.showHiden;
   }
 
-  sort() {
-    this.sortBy = this.formSort.value.typeSort;
-    this.descAsc == 'asc' ? this.descAsc = 'desc' : this.descAsc = 'asc';
-    this.pagination(this.indexPage);
+
+  sortByValue(sortValues:string){
+     const length = this.transferSearch.sortByValuesDTOList.length;
+    const sortValue:SortByValuesDTO = {name:sortValues, type:"desc"}
+     if(!length){
+       const sortValue:SortByValuesDTO = {name:sortValues, type:"desc"}
+       this.transferSearch.sortByValuesDTOList.push(sortValue)
+     }else {
+       let notContacts = true;
+       this.transferSearch.sortByValuesDTOList.forEach(value => {
+         if(value.name == sortValues){
+           value.type = value.type == 'desc'?'asc':'desc';
+            notContacts = false;
+         }
+       })
+       if(notContacts){
+         this.transferSearch.sortByValuesDTOList.push(sortValue)
+       }
+     }
+     this.toggerArr(sortValues);
+     this.pagination(this.indexPage);
   }
+
+  toggerArr(sortValues){
+    console.log("hh")
+    if(sortValues == 'name'){
+      this.nameArrow = !this.nameArrow;
+    }
+    if(sortValues == 'transferUser'){
+      this.transferUserArrow = !this.transferUserArrow;
+    }
+    if(sortValues == 'unitOld.name'){
+      this.unitOldArrow = !this.unitOldArrow ;
+    }
+    if(sortValues == 'unitNew.name'){
+      this.unitNewArrow = !this.unitNewArrow ;
+    }
+    if(sortValues == 'succeeDay'){
+      this.succeeDayArrow = !this.succeeDayArrow ;
+    }
+    if(sortValues == 'statusTransfer'){
+      this.statusTransferArrow = !this.statusTransferArrow ;
+    }
+    if(sortValues == 'reason'){
+      this.reasonArrow = !this.reasonArrow ;
+    }
+  }
+  pageItem(pageItems){
+    this.size = pageItems;
+    this.indexPage = 0;
+    this.pagination(this.indexPage);
+}
+
 }

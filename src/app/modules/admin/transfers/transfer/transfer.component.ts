@@ -10,6 +10,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../../../../@core/services/user.service";
 import {Transfer} from "./transfer.model";
 import {TransferService} from "./transfer.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'ngx-transfer',
@@ -27,8 +28,7 @@ export class TransferComponent implements OnInit {
   units: Unit[];
   id: any;
   transfer: Transfer = {};
-
-
+  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     private sessionService: SessionService,
@@ -86,10 +86,13 @@ export class TransferComponent implements OnInit {
 
   submit() {
     this.addTransfer()
+    this.showSpinner.next(true)
     this.transferService.saveTransfer(this.transfer).subscribe(res => {
+      this.showSpinner.next(false)
       this.toastr.success('Tạo đợt điều chuyển thành công')
       this.initForm();
     }, error => {
+      this.showSpinner.next(false)
       this.toastr.error(error.error.message)
     })
   }

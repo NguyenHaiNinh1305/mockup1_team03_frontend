@@ -4,17 +4,31 @@
     <h2 class="container-fluid text-center">Đăng nhập</h2>
 
     <!-- Email input -->
-    <div class=" md  p-float-label mb-4">
-      <input id="p-input text-lg" class="custom-input" formControlName="userName" type="text"
+    <div class=" md p-float-label ">
+      <div class="row">
+      <input id="p-input text-lg" placeholder="Tên đăng nhập" class="custom-input col-12" formControlName="userName" type="text"
              pInputText>
-      <label for="p-inputtext-lg">Tài khoản</label>
+      <small class="col alert text-danger col-12" role="alert"
+             *ngIf="formLogin.get('userName')?.errors?.required && formLogin.get('userName')?.touched">
+        Mật khẩu không được để trống !
+      </small>
+      </div>
     </div>
 
     <!--ng  Password input -->
-    <div class="p-float-label custom-input mb-3">
-      <input id="p-inputtext-lg" class="custom-input" formControlName="password" type="text"
+    <div class="p-float-label custom-input mt-3">
+      <div class="row">
+      <input id="p-inputtext-lg" placeholder="password" class="custom-input col-12" formControlName="password" type="password"
              pInputText />
-      <label for="p-inputtext-lg">Mật khẩu</label>
+      <small class="col alert text-danger col-12" role="alert"
+        *ngIf="formLogin.get('password')?.errors?.required && formLogin.get('password')?.touched">
+        Mật khẩu không được để trống !
+      </small>
+      <small class="col alert text-danger col-12r" role="alert"
+             *ngIf="formLogin.get('password')?.errors?.pattern && formLogin.get('password')?.touched">
+        Mật khẩu phải có 8 ký tự trở lên, bao gồm cả chữ, cả số và cả kí tự đặc biệt !
+      </small>
+      </div>
     </div>
 
     <div class="d-flex justify-content-between align-items-center">

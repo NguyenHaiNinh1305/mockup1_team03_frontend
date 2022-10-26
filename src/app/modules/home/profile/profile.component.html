@@ -1,6 +1,25 @@
-<h1>Thông tin cá nhân</h1>
-
-<p-card>
+<div  *ngIf="showSpinner | async">
+  <div class="loader" >
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p-card >
   <div  class="image-upload ">
     <label for="file-input">
       <img *ngIf="user && avataName"   [src]="urlAvaTa + avataName" alt="Avatar"
@@ -43,7 +62,6 @@
             </select>
           </div>
         </div>
-
       </div>
 
       <div class="form-group col-md-6">
@@ -150,7 +168,7 @@
       </div>
     </div>
     <div class="col-6 col-sm-6 col-md-6 py-3">
-      <button class="px-4 pr-4 btn btn-primary" (click)="open(content)"  style="float: right;">Save</button>
+      <button class="px-4 pr-4 btn btn-primary" [disabled]="!formProfile.valid" (click)="open(content)"  style="float: right;">Save</button>
     </div>
   </form>
   <!--              Modal                 -->

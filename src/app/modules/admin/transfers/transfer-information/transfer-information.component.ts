@@ -6,6 +6,7 @@ import {Status, Transfer} from "../transfer/transfer.model";
 import {User} from "../../../home/profile/profile.model";
 import {ToastrService} from "ngx-toastr";
 import {BehaviorSubject} from "rxjs";
+import {TokenService} from "../../../../@core/services/token.service";
 
 @Component({
   selector: 'ngx-transfer-information',
@@ -18,7 +19,8 @@ export class TransferInformationComponent implements OnInit {
   user: User;
   canReview: boolean = false;
   idTransfer:any;
-  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  canShowTransfer = false
 
   constructor(
     private  transferService: TransferService,
@@ -26,6 +28,7 @@ export class TransferInformationComponent implements OnInit {
     private router: Router,
     private  activatedRoute: ActivatedRoute,
     private  toastr: ToastrService,
+    private tokenService: TokenService,
   ) {
   }
 
@@ -38,13 +41,33 @@ export class TransferInformationComponent implements OnInit {
           const userId = localStorage.getItem('id-user')
           this.userService.getUserById(parseInt(userId)).subscribe(res => {
             this.user = res;
-            this.isCanReview();
+            if(this.authorizationManager()){
+              this.isCanReview();
+            }
           })
         })
       }
     });
-
   }
+
+  authorizationManager(){
+    const jwtDecode = this.userService.getDecodedAccessToken();
+    this.tokenService.saveUser(jwtDecode.sub);
+    let role = jwtDecode.auth.split(',')
+    if (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM_HR')
+      || role.includes('ROLE_HR') ) {
+      this.canShowTransfer = true;
+      return true;
+    }else if(role.includes('ROLE_DM')) {
+      const  idUnit = this.user.unit.id
+      if( idUnit == this.transfer.unitNew.id || idUnit == this.transfer.unitOld.id)
+        this.canShowTransfer = true;
+        return true;
+    }
+    this.canShowTransfer = false;
+     return  false;
+  }
+
 
   isCanReview() {
     // neu transfer da duyet, tu choi, da huy, khong cho thay doi thong tin

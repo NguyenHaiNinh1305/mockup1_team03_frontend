@@ -1,5 +1,26 @@
-<div class="loader" *ngIf="showSpinner | async">
+<div  *ngIf="showSpinner | async">
+  <div class="loader" >
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
 </div>
+<div *ngIf="!canShowTransfer">Bạn không có quyền xem thông tin đợt chuyển</div>
+<div *ngIf="canShowTransfer">
 <p-card *ngIf="!(showSpinner | async)">
   <h1>Thông tin chi tiết đợt chuyển</h1>
   <div *ngIf="transfer" class="form-row">
@@ -109,6 +130,7 @@
     </div>
   </div>
 </p-card>
+</div>
 
 
 

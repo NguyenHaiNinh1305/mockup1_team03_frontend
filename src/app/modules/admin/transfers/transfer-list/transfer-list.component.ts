@@ -118,9 +118,10 @@ export class TransferListComponent implements OnInit {
   }
 
 
-  sortByValue(sortValues:string){
+  sortByValue(sortValues:string, value?:string){
      const length = this.transferSearch.sortByValuesDTOList.length;
     const sortValue:SortByValuesDTO = {name:sortValues, type:"desc"}
+    this[value] = !this[value];
      if(!length){
        const sortValue:SortByValuesDTO = {name:sortValues, type:"desc"}
        this.transferSearch.sortByValuesDTOList.push(sortValue)
@@ -136,34 +137,9 @@ export class TransferListComponent implements OnInit {
          this.transferSearch.sortByValuesDTOList.push(sortValue)
        }
      }
-     this.toggerArr(sortValues);
      this.pagination(this.indexPage);
   }
 
-  toggerArr(sortValues){
-    console.log("hh")
-    if(sortValues == 'name'){
-      this.nameArrow = !this.nameArrow;
-    }
-    if(sortValues == 'transferUser'){
-      this.transferUserArrow = !this.transferUserArrow;
-    }
-    if(sortValues == 'unitOld.name'){
-      this.unitOldArrow = !this.unitOldArrow ;
-    }
-    if(sortValues == 'unitNew.name'){
-      this.unitNewArrow = !this.unitNewArrow ;
-    }
-    if(sortValues == 'succeeDay'){
-      this.succeeDayArrow = !this.succeeDayArrow ;
-    }
-    if(sortValues == 'statusTransfer'){
-      this.statusTransferArrow = !this.statusTransferArrow ;
-    }
-    if(sortValues == 'reason'){
-      this.reasonArrow = !this.reasonArrow ;
-    }
-  }
   pageItem(pageItems){
     this.size = pageItems;
     this.indexPage = 0;

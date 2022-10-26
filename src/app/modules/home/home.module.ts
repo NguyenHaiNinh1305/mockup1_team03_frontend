@@ -11,12 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {NewPassComponent} from "./new-pass/new-pass.component";
 import { CkeckPointComponent } from './ckeck-point/ckeck-point.component';
 
+
 const routes: Routes = [{
   path: '',
   component: HomeComponent,
   children: [
     {
-      path: 'dashboard',
+      path: 'chek-point',
       // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
     },
     {
@@ -28,7 +29,7 @@ const routes: Routes = [{
       component: NewPassComponent,
     },
     {
-      path: 'chek-point',
+      path: 'dashboard',
       component: CkeckPointComponent,
     },
 

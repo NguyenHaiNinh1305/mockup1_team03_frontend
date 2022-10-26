@@ -24,7 +24,8 @@ export class TransferUpdateComponent implements OnInit {
   units: Unit[];
   id: any;
   transfer: Transfer;
-  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  canUpdate = false;
 
   constructor(
     private sessionService: SessionService,
@@ -58,7 +59,15 @@ export class TransferUpdateComponent implements OnInit {
       if (idTransfer) {
         this.transferService.getTransfersById(idTransfer).subscribe(res => {
           this.transfer = res.object;
-          this.updateForm();
+          const id = localStorage.getItem('id-user');
+          if(parseInt(id) == this.transfer.createUser.id){
+            this.canUpdate = true;
+            this.updateForm();
+          }else {
+            this.canUpdate = false;
+          }
+
+
         })
       }
       this.transferService.getUnits().subscribe(res => {

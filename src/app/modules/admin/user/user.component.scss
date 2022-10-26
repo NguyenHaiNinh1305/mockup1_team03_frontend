@@ -1,0 +1,25 @@
+@import "src/app/modules/admin/transfers/loader";
+::ng-deep ngb-modal-backdrop {
+  z-index: 25 !important;
+}
+.table th, td {
+  white-space : nowrap;
+}
+.table th {
+  background-color: rgb(180, 231, 239);
+}
+
+.table  td {
+  cursor: pointer;
+}
+.table-div{
+  min-height: 300px;
+}
+li {
+  cursor: pointer;
+}
+.displayNone {
+  poiner-events: none;
+  opacity: 0.6;
+}
+

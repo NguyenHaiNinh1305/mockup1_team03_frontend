@@ -1,12 +1,13 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 
-import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { SessionService } from '../../../@core/services/session.service';
-import { Router } from '@angular/router';
+import {LayoutService} from '../../../@core/utils';
+import {map, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {SessionService} from '../../../@core/services/session.service';
+import {Router} from '@angular/router';
 import {ProfileService} from "../../../modules/home/profile/profile.service";
+import {AvataServiceService} from "../../../@core/services/avata-service.service";
 
 @Component({
   selector: 'ngx-header',
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   user: any;
   picture;
   userAvata = null;
-  name=this.sessionService.getItem('auth-user')
+  name = this.sessionService.getItem('auth-user')
 
   themes = [
     {
@@ -43,7 +44,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Thông tin cá nhân' },{ title: 'Thay đổi mật khẩu'   }, { title: 'Đăng xuất'   } ];
+  userMenu = [{title: 'Thông tin cá nhân'}, {title: 'Thay đổi mật khẩu'}, {title: 'Đăng xuất'}];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -53,29 +54,34 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private sessionService: SessionService,
               private router: Router,
               private profileService: ProfileService,
-              ) {
+              private avataServiceService: AvataServiceService,
+  ) {
   }
 
   ngOnInit() {
     this.currentTheme = this.themeService.currentTheme;
 
     this.user = this.sessionService.getItem('auth-user');
-    this.getByUserName(this.user);
-    this.menuService.onItemClick().subscribe((event)=>{
-      if(event.item.title==='Đăng xuất'){
+    this.avataServiceService.getAvatarByUserName();
+    this.avataServiceService.avatarUrl.subscribe(value => {
+      this.picture = value;
+    })
+    this.menuService.onItemClick().subscribe((event) => {
+      if (event.item.title === 'Đăng xuất') {
         this.sessionService.removeItem('auth-token'),
-        this.sessionService.removeItem('auth-user'),
-        this.router.navigate(['/auth/'])
+          this.sessionService.removeItem('auth-user'),
+          this.sessionService.removeItem('id-user'),
+          this.router.navigate(['/auth/'])
       }
-      if(event.item.title==='Thông tin cá nhân'){
+      if (event.item.title === 'Thông tin cá nhân') {
         this.router.navigate(['/home/profile'])
       }
-      if(event.item.title==='Thay đổi mật khẩu'){
+      if (event.item.title === 'Thay đổi mật khẩu') {
         this.router.navigate(['/home/change-password'])
       }
     });
 
-    const { xl } = this.breakpointService.getBreakpointsMap();
+    const {xl} = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
       .pipe(
         map(([, currentBreakpoint]) => currentBreakpoint.width < xl),
@@ -85,7 +91,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.themeService.onThemeChange()
       .pipe(
-        map(({ name }) => name),
+        map(({name}) => name),
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
@@ -112,19 +118,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return false;
   }
 
-
-  getByUserName(username){
-    this.profileService.getProfile(username).subscribe(
-      (res)=>{
-        if(res.object.avatarName){
-          this.picture = 'http://localhost:9090/api/public/user-profile/avata/' + res.object.avatarName;
-        }else {
-          this.picture  = 'https://www.w3schools.com/howto/img_avatar.png';
-        }
-      },error => {
-        this.picture  = 'https://www.w3schools.com/howto/img_avatar.png';
-      }
-    )
-  }
 }
 

@@ -59,7 +59,7 @@
     <table class="text-center table  table-infoUser table-hover">
       <thead>
       <tr>
-        <th (click)="sortByValue('name')">Tên đợt chuyển <i
+        <th (click)="sortByValue('name','nameArrow')">Tên đợt chuyển <i
           *ngIf="nameArrow"
 
           class="fa fa-thin fa-arrow-up icon-color" ></i>
@@ -67,22 +67,22 @@
 
 
 
-        <th (click)="sortByValue('transferUser')" scope="col">Tên nhân viên <i *ngIf="transferUserArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('transferUser','transferUserArrow')" scope="col">Tên nhân viên <i *ngIf="transferUserArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
                                       <i *ngIf="!transferUserArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
 
-        <th (click)="sortByValue('unitOld.name')" scope="col">Đơn vị ban đầu <i *ngIf="unitOldArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('unitOld.name','unitOldArrow')" scope="col">Đơn vị ban đầu <i *ngIf="unitOldArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
                                        <i *ngIf="!unitOldArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
 
-        <th (click)="sortByValue('unitNew.name')" scope="col">Đơn vị mới <i *ngIf="unitNewArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('unitNew.name','unitNewArrow')" scope="col">Đơn vị mới <i *ngIf="unitNewArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
                                    <i *ngIf="!unitNewArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
 
-        <th (click)="sortByValue('succeeDay')" scope="col">Ngày chuyển <i *ngIf="succeeDayArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('succeeDay','succeeDayArrow')" scope="col">Ngày chuyển <i *ngIf="succeeDayArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
                                     <i *ngIf="!succeeDayArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
 
-        <th (click)="sortByValue('statusTransfer')" scope="col">Trạng thái <i *ngIf="statusTransferArrow"  class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('statusTransfer','statusTransferArrow')" scope="col">Trạng thái <i *ngIf="statusTransferArrow"  class="fa fa-thin fa-arrow-up icon-color" ></i>
                                    <i *ngIf="!statusTransferArrow"  class="fa icon-color fa-thin fa-arrow-down"></i></th>
 
-        <th (click)="sortByValue('reason')" scope="col">Lý do <i *ngIf="reasonArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+        <th (click)="sortByValue('reason','reasonArrow')" scope="col">Lý do <i *ngIf="reasonArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
                               <i *ngIf="!reasonArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
       </tr>
       </thead>

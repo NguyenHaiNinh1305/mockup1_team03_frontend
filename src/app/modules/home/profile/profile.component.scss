@@ -1,3 +1,5 @@
+@import "src/app/modules/admin/transfers/loader";
+
 .uploadAvata {
   margin-left: 25%;
   margin-bottom: 20px;
@@ -24,4 +26,8 @@
 }
 #file-input {
   display: none;
+}
+.form-control:disabled, .form-control[readonly] {
+  background-color: #ffffff;
+  opacity: 1;
 }

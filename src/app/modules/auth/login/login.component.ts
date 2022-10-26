@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {UserService} from "../../../@core/services/user.service";
 import {SessionService} from "../../../@core/services/session.service";
 import {ProfileService} from "../../home/profile/profile.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
               private  userService: UserService,
               private sessionService: SessionService,
               private profileService: ProfileService,
+              private  toastr: ToastrService,
   ) {
   }
 
@@ -41,8 +43,8 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.formLogin = this.fb.group({
-      userName: ['', Validators.required],
-      password: ['', Validators.required],
+      userName: ['', [Validators.required, Validators.maxLength(50)]],
+      password: ['', [Validators.required, Validators.maxLength(16), Validators.pattern('^(?=[^A-Z\\n]*[A-Z])(?=[^a-z\\n]*[a-z])(?=[^0-9\\n]*[0-9])(?=[^#?!@$%^&*\\n-]*[#?!@$%^&*-]).{8,}$')]],
     });
   }
 
@@ -60,18 +62,19 @@ export class LoginComponent implements OnInit {
           const jwtDecode = this.userService.getDecodedAccessToken();
           this.tokenService.saveUser(jwtDecode.sub);
           this.saveUserId();
-
-          // them dieu huong ve trang admin neu co quyen
           let role = jwtDecode.auth.split(',')
           if (localStorage.getItem('auth-token')
             && (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM')
-              || role.includes('ROLE_HR'))) {
-            this.router.navigate(['/admin/']);
+              || role.includes('ROLE_HR') || role.includes('ROLE_DM_HR'))) {
+            this.toastr.success("Đăng nhập thành công")
+            this.router.navigate(['/admin/dashboard']);
             return;
           }
-          // this.roles = this.tokenService.getUser().roles;
-          this.router.navigate(['/home/']);
-        },
+          this.toastr.success("Đăng nhập thành công")
+          this.router.navigate(['/home/dashboard']);
+        },error => {
+          this.toastr.error("Đăng nhập thất bại")
+        }
       );
     }
   }
@@ -81,12 +84,11 @@ export class LoginComponent implements OnInit {
   }
 
   saveUserId() {
-
     let username = this.sessionService.getItem('auth-user')
     this.profileService.getProfile(username).subscribe(
       (res) => {
         localStorage.setItem("id-user", res.object.id);
       })
-
   }
+
 }

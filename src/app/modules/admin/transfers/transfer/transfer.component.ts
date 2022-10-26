@@ -11,6 +11,7 @@ import {UserService} from "../../../../@core/services/user.service";
 import {Transfer} from "./transfer.model";
 import {TransferService} from "./transfer.service";
 import {BehaviorSubject} from "rxjs";
+import {TokenService} from "../../../../@core/services/token.service";
 
 @Component({
   selector: 'ngx-transfer',
@@ -28,7 +29,8 @@ export class TransferComponent implements OnInit {
   units: Unit[];
   id: any;
   transfer: Transfer = {};
-  public showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  canCreateTransfer = false;
 
   constructor(
     private sessionService: SessionService,
@@ -40,6 +42,7 @@ export class TransferComponent implements OnInit {
     private router: Router,
     private  activetedRoute: ActivatedRoute,
     private userSerivice: UserService,
+    private tokenService: TokenService,
     private  transferService: TransferService,
     config: NgbModalConfig,
   ) {
@@ -55,26 +58,44 @@ export class TransferComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
-    this.initForm();
-    this.activetedRoute.paramMap.subscribe(params => {
-      this.id = params.get('id');
-      if (this.id) {
-        // get transferUser
-        this.userSerivice.getUserById(this.id).subscribe(res => {
-          this.transferUser = res;
-          this.unitOld = this.transferUser.unit
-        })
-      }
-      this.transferService.getUnits().subscribe(res => {
-        this.units = res.object;
-      })
-    })
-    const userId = localStorage.getItem('id-user')
-    this.userSerivice.getUserById(parseInt(userId)).subscribe(res => {
-      this.createUser = res;
-    })
+   if(this.authorizationManager()) {
+     this.primengConfig.ripple = true;
+     this.initForm();
+     this.activetedRoute.paramMap.subscribe(params => {
+       this.id = params.get('id');
+       if (this.id) {
+         // get transferUser
+         this.userSerivice.getUserById(this.id).subscribe(res => {
+           this.transferUser = res;
+           this.unitOld = this.transferUser.unit
+         })
+       }
+       this.transferService.getUnits().subscribe(res => {
+         this.units = res.object;
+       })
+     })
+     const userId = localStorage.getItem('id-user')
+     this.userSerivice.getUserById(parseInt(userId)).subscribe(res => {
+       this.createUser = res;
+     })
+   }
   }
+
+  authorizationManager(){
+    const jwtDecode = this.userSerivice.getDecodedAccessToken();
+    this.tokenService.saveUser(jwtDecode.sub);
+    let role = jwtDecode.auth.split(',')
+    if (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM_HR')
+        || role.includes('ROLE_HR') ) {
+     this.canCreateTransfer = true
+      return true;
+    }else {
+      this.canCreateTransfer = false
+      return false
+    }
+
+  }
+
 
   initForm() {
     this.formTransfer = this.fb.group({

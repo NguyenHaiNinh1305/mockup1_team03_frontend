@@ -7,6 +7,7 @@ import {PrimeNGConfig} from "primeng/api";
 import {User} from "./new-pass.model";
 import {UserService} from "../../../@core/services/user.service";
 import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
+import {BehaviorSubject} from "rxjs";
 
 export function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -26,8 +27,7 @@ export class NewPassComponent implements OnInit {
   formPassword: FormGroup;
   user: User = {};
   username: string;
-  togger :boolean = false;
-  submited = false;
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     private sessionService: SessionService,
@@ -59,43 +59,20 @@ export class NewPassComponent implements OnInit {
   }
 
   onSubmit(){
-
-    this.togger =true;
-    this.submited = true;
-    this.username=this.sessionService.getItem('auth-user')
-    let ckeck = true;
-    Object.keys(this.formPassword.controls).forEach(key => {
-
-      const controlErrors: ValidationErrors = this.formPassword.get(key).errors;
-      if (controlErrors != null) {
-        ckeck = false;
-        return;
-      }
-    });
-    if (ckeck && !this.formPassword.errors){
+    if (this.formPassword.valid){
       this.user.userName = this.username;
       this.user.password = this.formPassword.value.password;
+      this.showSpinner.next(true)
       this.profileService.putChangePass(this.user).subscribe(
         (res)=>{
+          this.showSpinner.next(false)
           this.toastr.success('Cập nhật thành công');
         },error => {
+          this.showSpinner.next(false)
           this.toastr.error('Cập nhật thành công');
-
         });
 
     }
-  }
-
- blur(){
-    this.togger = true;
- }
-    forcus(){
-    this.togger = false;
-    this.submited = false;
-
-      let token =  this.userService.getDecodedAccessToken();
-      console.log(token);
-
   }
 
 }

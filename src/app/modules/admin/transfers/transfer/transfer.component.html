@@ -1,6 +1,27 @@
-<div class="loader" *ngIf="showSpinner | async">
+<div  *ngIf="showSpinner | async">
+  <div class="loader" >
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
 </div>
-<p-card *ngIf="!(showSpinner | async)" >
+<div *ngIf="!canCreateTransfer">Bạn không có quyền tạo đợt chuyển</div>
+<div *ngIf="canCreateTransfer">
+<p-card  >
 <div >
   <h1>Tạo đợt điều chuyển</h1>
   <form [formGroup]="formTransfer" >
@@ -95,12 +116,10 @@
       </div>
       <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
     </div>
-
-
-
   </ng-template>
   <!--      end Modal                 -->
 </p-card>
+</div>
 
 
 

@@ -2,33 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="11ab3848-3aae-40aa-b4a6-1898c05af8de" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/0.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/1.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/10.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/11.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/12.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/13.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/14.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/15.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/16.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/16.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/17.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/17.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/18.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/18.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/19.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/19.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/2.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/20.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/20.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/3.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/4.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/5.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/6.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/7.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/8.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/9.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/.angular/cache/angular-webpack/d0c3d3185e21d7ad51844943c240c06451188022/index.pack.old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/home/profile/profile.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
     <option name="showPreview" value="true" />
@@ -70,12 +52,16 @@
     <property name="node.js.selected.package.stylelint" value="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\node_modules\stylelint" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\src\app\modules\home" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Documents\GitHub\mockup1_team03_frontend\src\app\@core\services" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -161,6 +147,25 @@
       <workItem from="1666446004130" duration="11512000" />
       <workItem from="1666505978559" duration="5000" />
       <workItem from="1666507196421" duration="857000" />
+      <workItem from="1666508118299" duration="476000" />
+      <workItem from="1666509180023" duration="805000" />
+      <workItem from="1666510008008" duration="95000" />
+      <workItem from="1666510146112" duration="204000" />
+      <workItem from="1666510446343" duration="90000" />
+      <workItem from="1666510711688" duration="1381000" />
+      <workItem from="1666513835620" duration="2209000" />
+      <workItem from="1666517475040" duration="830000" />
+      <workItem from="1666533830544" duration="6865000" />
+      <workItem from="1666541579431" duration="6949000" />
+      <workItem from="1666574732409" duration="11384000" />
+      <workItem from="1666593272997" duration="15028000" />
+      <workItem from="1666661478710" duration="4351000" />
+      <workItem from="1666671109553" duration="2963000" />
+      <workItem from="1666679899229" duration="15604000" />
+      <workItem from="1666712830690" duration="3224000" />
+      <workItem from="1666747698295" duration="6845000" />
+      <workItem from="1666758644289" duration="1141000" />
+      <workItem from="1666766156418" duration="880000" />
     </task>
     <servers />
   </component>

@@ -6,6 +6,7 @@ import { User} from "./user.mode";
 import {USortDTOs} from "./UserSortDTO";
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,8 +54,5 @@ export class userService {
   public findIsActivce(indexPage:any, size:any,dto:USortDTOs):Observable<any>{
     return this.http.put<any>(this.userAPI+"/isActive?page=" +indexPage+"&size="+size,dto);
   }
-
-
-
 
 }

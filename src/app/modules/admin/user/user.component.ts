@@ -10,8 +10,6 @@ import {BehaviorSubject} from "rxjs";
 import {SortByValueUserDTO, USortDTOs} from "./UserSortDTO";
 
 
-
-
 @Component({
   selector: 'ngx-user',
   templateUrl: './user.component.html',
@@ -73,12 +71,7 @@ export class UserComponent implements OnInit {
       position: ['', Validators.required],
       isLeader: ['', Validators.required],
     });
-
-
-
-
   }
-
 
   openLg(content) {
     this.modalService.open(content, {size: 'lg', centered: true, scrollable: true});
@@ -185,7 +178,6 @@ export class UserComponent implements OnInit {
 
     const url = "admin/user-edit/" + id;
     this.router.navigate([url]);
-
   }
 
   check() {
@@ -211,11 +203,12 @@ export class UserComponent implements OnInit {
       return false;
     }
   }
-
+  
   pagination(page: any) {
     if (page < 0) {
       page = 0;
     }
+
     this.indexPage = page
     this.userService.getPageUser(this.indexPage,this.idUser,this.size,this.userDto)
       .subscribe(res => {
@@ -223,6 +216,7 @@ export class UserComponent implements OnInit {
         this.Page = res.object;
       },error => {
       })
+
   }
 
   preNextPage(selector: string) {
@@ -312,6 +306,7 @@ export class UserComponent implements OnInit {
     }
     this.pagination(this.indexPage);
   }
+
 
 
 }

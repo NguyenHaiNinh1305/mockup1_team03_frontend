@@ -4,7 +4,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Trang chủ',
     icon: 'home-outline',
-    link: '/admin/dashboard',
+    link: '/home/dashboard',
     home: true,
   },
   {

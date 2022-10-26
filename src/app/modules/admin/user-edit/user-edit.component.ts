@@ -190,6 +190,7 @@ export class UserEditComponent implements OnInit {
         console.log(error)
       })
   }
+  
 // hiep them moi
   transfer() {
     if (!this.check1()) {

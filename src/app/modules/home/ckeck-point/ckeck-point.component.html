@@ -1,29 +1,349 @@
+<div *ngIf="showSpinner | async">
+  <div class="loader">
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1>Quản lý checkpoint</h1>
-
-<p-card>
-
-<!--  điền thông tin vào check point-->
+ <h1>Quản lý checkpoint</h1>
+<div *ngIf="!checkpointActive">Bạn chưa tới kỳ checkpoint hoặc đã điền song thông tin</div>
+  <div *ngIf="checkpointActive">
+    <p-card>
+  <!--  điền thông tin vào check point-->
   <div>
-  <h3>Bạn đã tới kỳ checkpoint bạn hãy điền thông tin vào Form</h3>
+    <h3>Bạn đã tới kỳ checkpoint bạn hãy điền thông tin vào Form</h3>
+    <form [formGroup]="reviewForm">
+      <div class="form-row">
+
+        <!--      completionTime      -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Thời gian hoàn thành công việc</label>
+            <div class="col-12">
+              <input type="number" class="form-control" formControlName="completionTime">
+
+              <!--              <div class="text-danger pt-1"  *ngIf="formProfile.controls.cccd.errors-->
+              <!--                                   && formProfile.controls.cccd.touched || submited">-->
+              <!--                <div *ngIf="formProfile.controls.cccd.errors?.required">Không được để trống</div>-->
+              <!--                <div *ngIf="!formProfile.controls.cccd.errors?.required-->
+              <!--                                 && formProfile.controls.cccd.errors?.pattern ">Cccd không đúng</div>-->
+              <!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <!--      end  completionTime      -->
+
+        <!-- performanceEvaluation -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Chất lượng hoàn thành công việc</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="performanceEvaluation">
+                <option value="'Xuất sắc'" [selected]="reviewForm.value.completionTime === 'Xuất sắc'">Xuất sắc</option>
+                <option [selected]="reviewForm.value.completionTime === 'Đáp ứng được yêu cầu'"
+                        value="Đáp ứng được yêu cầu">Đáp ứng được yêu cầu
+                </option>
+                <option [selected]="reviewForm.value.completionTime === 'Còn sai sót nhỏ'" value="Còn sai sót nhỏ">Còn
+                  sai sót nhỏ
+                </option>
+                <option [selected]="reviewForm.value.completionTime === 'Còn nhiều sai sót'" value="Còn nhiều sai sót">
+                  Còn nhiều sai sót
+                </option>
+                <option [selected]="reviewForm.value.completionTime === 'Không đáp ứng được công việc'"
+                        value="Không đáp ứng được công việc">Không đáp ứng được công việc
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end performanceEvaluation -->
+
+        <!-- projectReport -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Báo cáo trong dự án</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="projectReport">
+                <option value="'Báo cáo kịp thời'"
+                        [selected]="reviewForm.value.projectReport === 'Báo cáo kịp thời'">Báo cáo kịp thời
+                </option>
+                <option [selected]="reviewForm.value.projectReport === 'Báo cáo gần như kịp thời'"
+                        value="Báo cáo gần như kịp thời">Báo cáo gần như kịp thời
+                </option>
+                <option [selected]="reviewForm.value.projectReport === 'Đôi khi còn chậm trễ'"
+                        value="Đôi khi còn chậm trễ">Đôi khi còn chậm trễ
+                </option>
+                <option [selected]="reviewForm.value.projectReport === 'Không báo cáo kịp thời'"
+                        value="không báo cáo kịp thời">không báo cáo kịp thời
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end projectReport -->
 
 
+        <!-- advancedSkill -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Kỹ năng chuyên môn</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="advancedSkill">
+                <option [selected]="reviewForm.value.advancedSkill === 'Tốt'" value="'Tốt'">Tốt</option>
+                <option [selected]="reviewForm.value.advancedSkill === 'Đủ đáp ứng công việc'"
+                        value="Đủ đáp ứng công việc">Đủ đáp ứng công việc
+                </option>
+                <option [selected]="reviewForm.value.advancedSkill === 'Còn một vài thiếu sót cần trau dồi'"
+                        value="Còn một vài thiếu sót cần trau dồi">Còn một vài thiếu sót cần trau dồi
+                </option>
+                <option [selected]="reviewForm.value.advancedSkill === 'Không đủ đáp ứng công việc'"
+                        value="Không đủ đáp ứng công việc">Không đủ đáp ứng công việc
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end advancedSkill -->
 
+        <!-- studiousSpirit -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Tinh thần học hỏi và cầu tiến</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="studiousSpirit">
+                <option [selected]="reviewForm.value.studiousSpirit === 'Ham học hỏi'" value="'Ham học hỏi'">Ham học hỏi
+                </option>
+                <option [selected]="reviewForm.value.studiousSpirit === 'Sãn sàng tìm hiểu công nghệ đáp ứng dự án'"
+                        value="Sãn sàng tìm hiểu công nghệ đáp ứng dự án">Sãn sàng tìm hiểu công nghệ đáp ứng dự án
+                </option>
+                <option [selected]="reviewForm.value.studiousSpirit === 'Chỉ học các công nghệ mới cảm thấy hứng thú'"
+                        value="Chỉ học các công nghệ mới cảm thấy hứng thú">Chỉ học các công nghệ mới cảm thấy hứng thú
+                </option>
+                <option [selected]="reviewForm.value.studiousSpirit === 'Chỉ trau dồi nâng cao kỹ năng sẵn có'"
+                        value="Chỉ trau dồi nâng cao kỹ năng sẵn có">Chỉ trau dồi nâng cao kỹ năng sẵn có
+                </option>
+                <option [selected]="reviewForm.value.studiousSpirit === 'Không có nhu cầu'" value="Không có nhu cầu">
+                  Không có nhu cầu
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end studiousSpirit -->
+
+        <!-- abilityProfession -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Khả năng hiểu nghiệp vụ</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="abilityProfession">
+                <option [selected]="reviewForm.value.abilityProfession === 'Hiểu nhanh và chính xác'"
+                        value="'Hiểu nhanh và chính xác'">Hiểu nhanh và chính xác
+                </option>
+                <option
+                  [selected]="reviewForm.value.abilityProfession === 'Hơi khúc mắc ở một số điểm cần giải thích từ khách hàng'"
+                  value="Hơi khúc mắc ở một số điểm cần giải thích từ khách hàng">Hơi khúc mắc ở một số điểm cần giải
+                  thích từ khách hàng
+                </option>
+                <option [selected]="reviewForm.value.abilityProfession === 'Hiểu nghiệp vụ chậm và kém'"
+                        value="Hiểu nghiệp vụ chậm và kém">Hiểu nghiệp vụ chậm và kém
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end abilityProfession -->
+
+        <!-- abilityImproviseNewWork -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Khả năng ứng biến với công việc mới</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="abilityImproviseNewWork">
+                <option [selected]="reviewForm.value.abilityImproviseNewWork === 'Tốt'" value="'Tốt'">Tốt</option>
+                <option [selected]="reviewForm.value.abilityImproviseNewWork === 'Khá'" value="Khá">Khá</option>
+                <option [selected]="reviewForm.value.abilityImproviseNewWork === 'Bình thường'" value="Bình thường">Bình
+                  thường
+                </option>
+                <option [selected]="reviewForm.value.abilityImproviseNewWork === 'Yếu'" value="Yếu">Yếu</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end abilityImproviseNewWork -->
+
+        <!-- adhereTime -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Chấp hành giờ giấc</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="adhereTime">
+                <option [selected]="reviewForm.value.adhereTime === 'Chấp hành tốt'" value="'Chấp hành tốt'">Chấp hành
+                  tốt
+                </option>
+                <option
+                  [selected]="reviewForm.value.adhereTime === 'Chấp hành khá tốt nhưng đôi khi vẫn có sai sót về giờ'"
+                  value="Chấp hành khá tốt nhưng đôi khi vẫn có sai sót về giờ">Chấp hành khá tốt nhưng đôi khi vẫn có
+                  sai sót về giờ
+                </option>
+                <option [selected]="reviewForm.value.adhereTime === ' Chấp hành kém'" value=" Chấp hành kém"> Chấp hành
+                  kém
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end adhereTime -->
+
+        <!-- communicationSkills -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Kỹ năng giao tiếp, trao đổ</label>
+            <div class="col-12">
+              <select class="form-control" formControlName="communicationSkills">
+                <option [selected]="reviewForm.value.communicationSkills === 'Tốt'" value="'Tốt'">Tốt</option>
+                <option [selected]="reviewForm.value.communicationSkills === 'Khá'" value="Khá">Khá</option>
+                <option [selected]="reviewForm.value.communicationSkills === 'Trung bình'" value="Trung bình">Trung bình
+                </option>
+                <option [selected]="reviewForm.value.communicationSkills === 'Yếu'" value="Yếu">Yếu</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end communicationSkills -->
+
+        <!--         salary              -->
+        <div class="form-group col-12 col-sm-6 col-md-4">
+          <div class="row">
+            <label class="label col-12 ">Lương</label>
+            <div class="col-12">
+              <input type="number" class="form-control" formControlName="salary">
+            </div>
+          </div>
+        </div>
+        <!--      end   salary              -->
+
+        <!-- readyOnsite -->
+        <div class="col-12 col-sm-6 pt-1 col-md-4 mt-3">
+
+          <div class="form-check form-check-inline col-12 col-sm-12">
+            <input class="form-check-input " formControlName="readyOnsite" [value]="true" type="radio"
+                   name="readyOnsite" id="inlineRadio1-readyOnsite" value="true">
+            <label class="form-check-label col-10" for="inlineRadio1-readyOnsite">Sẵn sàng onsite</label>
+          </div>
+
+          <div class="form-check form-check-inline col-12 col-sm-12">
+            <input class="form-check-input " formControlName="readyOnsite" [value]="false" type="radio"
+                   name="readyOnsite" id="inlineRadio2-readyOnsite" value="false">
+            <label class="form-check-label col-10" for="inlineRadio2-readyOnsite">Không sẵn sàng onsite</label>
+          </div>
+        </div>
+        <!-- end readyOnsite -->
+
+        <!-- selfOrientation -->
+        <div class="col-12 col-sm-6 pt-1 col-md-4 mb-3 mt-3">
+          <div class="form-check form-check-inline col-12 col-sm-12">
+            <input class="form-check-input" formControlName="readyOnProject" [value]="true" type="radio"
+                   name="readyOnProject" id="inlineRadio1-readyOnProject" value="true">
+            <label class="form-check-label col-12" for="inlineRadio1-readyOnProject">Sẵn sàng nhập dự án</label>
+          </div>
+
+          <div class="form-check form-check-inline col-12 col-sm-12">
+            <input class="form-check-input" formControlName="readyOnProject" [value]="false" type="radio"
+                   name="readyOnProject" id="inlineRadio2-readyOnProject" value="false">
+            <label class="form-check-label col-12" for="inlineRadio2-readyOnProject">Không sẵn sàng nhập dự án</label>
+          </div>
+        </div>
+        <!-- end selfOrientation -->
+
+        <!-- onsite -->
+        <div style="margin-right:0px!important; " class="form-check form-check-inline col-6 col-sm-2">
+          <input class="form-check-input" formControlName="onsite" [value]="true" type="radio" name="onsite"
+                 id="inlineRadio1" value="true">
+          <label class="form-check-label" for="inlineRadio1">Onsite</label>
+        </div>
+        <div style="margin-right:0px!important " class="form-check form-check-inline col-6 col-sm-2 ">
+          <input class="form-check-input" formControlName="onsite" [value]="false" type="radio"
+                 name="onsite" id="inlineRadio2" value="false">
+          <label class="form-check-label" for="inlineRadio2"> Not Onsite</label>
+        </div>
+        <!-- end onsite -->
+
+        <!-- customerReviews-->
+        <div *ngIf="reviewForm.value.onsite" class="form-group col-12 col-sm-6 col-md-8">
+          <div class="row">
+            <label class="label col-12 ">Đánh giá của khách hàng</label>
+            <div class="col-12">
+              <input type="text" class="  form-control" formControlName="customerReviews"/>
+            </div>
+          </div>
+        </div>
+        <!-- end customerReviews -->
+
+        <!-- selfOrientation -->
+        <div class="form-group col-12 pt-3">
+          <div class="row">
+            <label class="label col-12 " >Các điều cần đạt được trong thời gian tới, định hướng bản thân</label>
+            <div class="col-12"></div>
+            <textarea class="form-control" formControlName="selfOrientation" rows="1"></textarea>
+          </div>
+        </div>
+        <!-- end selfOrientation -->
+
+        <!-- end feedbackCompany -->
+        <div class="form-group col-12">
+          <div class="row">
+            <label class="label col-12 ">Các điều cần đạt được trong thời gian tới, định hướng bản thân</label>
+            <div class="col-5 col-sm-9"></div>
+            <textarea class="form-control" formControlName="feedbackCompany" rows="1"></textarea>
+          </div>
+        </div>
+        <!-- end feedbackCompany -->
+
+        <div  class="row justify-content-center">
+          <button style="width:90px" type="button" (click)="userClick('submit',content)" class="btn btn-success ml-3">Submit</button>
+          <button style="width:90px" type="button" (click)="userClick('save',content)" class="btn btn-primary ml-3">Save</button>
+            <button  type="button" (click)="userClick('cancel')"
+                    class="btn btn-danger px-3 ml-3">Cancel</button>
+          </div>
+
+
+      </div>
+    </form>
+  </div>
+    </p-card>
   </div>
 
 
+<!--                Modal-->
+    <ng-template #content let-c="close" let-d="dismiss">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        <p>Xác nhận thay đổi!</p>
+      </div>
+      <div class="modal-footer">
+        <div (click)="submit()">
+          <button type="button" class="btn btn-success" (click)="c('Save click')">Save</button>
+        </div>
+        <button type="button" class="btn btn-danger" (click)="d('Cross click')">Cancel</button>
+      </div>
+    </ng-template>
+<!--                Modal-->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-</p-card>

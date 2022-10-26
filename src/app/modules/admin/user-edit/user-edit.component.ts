@@ -190,7 +190,14 @@ export class UserEditComponent implements OnInit {
         console.log(error)
       })
   }
-
+  
+// hiep them moi
+  transfer() {
+    if (!this.check1()) {
+      const url = '/admin/transfer/' + this.user.id;
+      this.router.navigate([url])
+    }
+  }
 
   checkValueHr(){
     if(this.formEdit.value.unit.id==3){

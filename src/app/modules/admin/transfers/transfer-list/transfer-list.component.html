@@ -1,89 +1,89 @@
-<p-card>
+
+<p-card >
+
   <h2>Danh sách đợt chuyển</h2>
   <!--  ----formSearch----    -->
-  <form *ngIf="showHiden" [formGroup]="formSearch">
+  <form  [formGroup]="formSearch">
     <div class="form-row">
-      <div class="col-12 row">
-        <div class="col-12 row">
-          <div class="form-group col-12 col-sm-6">
-            <label for="inputname">Tên đợt chuyển</label>
-            <input type="text" formControlName="name" class="form-control"
-                   id="inputname">
-          </div>
-          <div class="form-group col-12 col-sm-6">
-            <label for="reason">Lý do chuyển</label>
-            <input type="text" formControlName="reason" id="reason" class="form-control">
-          </div>
 
           <div class="form-group col-12 col-sm-6">
-            <label for="transferUserName">Tên nhân viên</label>
-            <input id="transferUserName" type="text" formControlName="transferUserName" class="form-control">
+            <div class="row">
+            <label class="col-4" for="inputname">Tên đợt chuyển</label>
+            <input   type="text" formControlName="name" class="form-control col-7"
+                   id="inputname"></div>
           </div>
           <div class="form-group col-12 col-sm-6">
-            <label>Ngày chuyển</label>
-            <input type="date" class="form-control" formControlName="succeeDay">
+            <div class="row">
+            <label class="col-4" for="reason">Lý do chuyển</label>
+            <input  type="text" formControlName="reason" id="reason" class="form-control col-7">
+          </div>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <div class="row">
+            <label class="col-4" for="transferUserName">Tên nhân viên</label>
+            <input id="transferUserName" type="text" formControlName="transferUserName" class="form-control col-7">
+          </div>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <div class="row">
+            <label class="col-4">Ngày chuyển</label>
+            <input type="date" class="form-control col-7" formControlName="succeeDay">
           </div>
         </div>
 
-        <div *ngIf="units" class="form-group row col-md-12">
+      <div *ngIf="units" class="form-group col-12 col-sm-6">
+        <div class="row">
+          <label class="col-4">Đơn vị cũ</label>
+          <select id="unitOld" class="form-control col-7" formControlName="unitOld">
+            <option *ngFor="let unit of units;" [value]="unit.id">{{unit.name}}</option>
+          </select>
+        </div>
+      </div>
 
-          <div class="col-6 ">
-            <label>Đơn vị cũ</label>
-            <select id="unitOld" class="form-control" formControlName="unitOld">
-              <option *ngFor="let unit of units;" [value]="unit.id">{{unit.name}}</option>
-            </select>
-          </div>
-
-          <div class="col-6 ">
-            <label>Đơn vị mới</label>
-            <select id="unitNew" class="form-control" formControlName="unitNew">
-              <option *ngFor="let unit of units;" [value]="unit.id">{{unit.name}}</option>
-            </select>
-          </div>
-
+      <div *ngIf="units" class="form-group col-12 col-sm-6">
+        <div class="row">
+          <label class="col-4">Đơn vị mới</label>
+          <select id="unitNew" class="form-control col-7" formControlName="unitNew">
+            <option *ngFor="let unit of units;" [value]="unit.id">{{unit.name}}</option>
+          </select>
         </div>
       </div>
     </div>
-
+    <div class="row col-12 justify-content-end">
+    <button  type="button" (click)="onSubmit()" class="btn btn-primary ">Tìm kiếm</button>
+    </div>
   </form>
   <!--      end form formSearch     -->
-
-
-    <div class="row ">
-      <div class="col-6 col-sm-5">
-        <button *ngIf="showHiden" type="button" (click)="onSubmit()" class="btn btn-primary">Tìm kiếm</button>
-        <button *ngIf="!showHiden" type="button" (click)="togger()" class="btn btn-primary">Tìm kiếm</button>
-      </div>
-      <div class="row  col-12  col-sm-7 pl-0 pl-md-5 pl-sm-0 ml-sm-0  ml-md-2 ml-0 pt-3  pt-sm-0 ">
-          <form class="col-6 " [formGroup]="formSort">
-            <select class="col-12 col-sm-12 form-control" formControlName="typeSort">
-              <option value="name">Tên đợt chuyển</option>
-              <option value="transferUser">Tên người chuyển</option>
-              <option value="succeeDay">Ngày chuyển</option>
-              <option value="statusTransfer">Trạng Thái</option>
-            </select>
-          </form>
-
-          <div class=" col-5 col-sm-6">
-            <button type="button" (click)="sort()" class="btn col-12 col-md-6 col-lg-5 btn-primary">Sắp xếp
-            </button>
-          </div>
-        </div>
-      </div>
-
-
 
   <div class="table-responsive pt-3 table-infoUser-div">
     <table class="text-center table  table-infoUser table-hover">
       <thead>
       <tr>
-        <th>Tên đợt chuyển</th>
-        <th scope="col">Tên nhân viên</th>
-        <th scope="col">Đơn vị ban đầu</th>
-        <th scope="col">Đơn vị mới</th>
-        <th scope="col">Ngày chuyển</th>
-        <th scope="col">Trạng thái</th>
-        <th scope="col">Lý do</th>
+        <th (click)="sortByValue('name','nameArrow')">Tên đợt chuyển <i
+          *ngIf="nameArrow"
+
+          class="fa fa-thin fa-arrow-up icon-color" ></i>
+                           <i *ngIf="!nameArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+
+
+        <th (click)="sortByValue('transferUser','transferUserArrow')" scope="col">Tên nhân viên <i *ngIf="transferUserArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+                                      <i *ngIf="!transferUserArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+        <th (click)="sortByValue('unitOld.name','unitOldArrow')" scope="col">Đơn vị ban đầu <i *ngIf="unitOldArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+                                       <i *ngIf="!unitOldArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+        <th (click)="sortByValue('unitNew.name','unitNewArrow')" scope="col">Đơn vị mới <i *ngIf="unitNewArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+                                   <i *ngIf="!unitNewArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+        <th (click)="sortByValue('succeeDay','succeeDayArrow')" scope="col">Ngày chuyển <i *ngIf="succeeDayArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+                                    <i *ngIf="!succeeDayArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+        <th (click)="sortByValue('statusTransfer','statusTransferArrow')" scope="col">Trạng thái <i *ngIf="statusTransferArrow"  class="fa fa-thin fa-arrow-up icon-color" ></i>
+                                   <i *ngIf="!statusTransferArrow"  class="fa icon-color fa-thin fa-arrow-down"></i></th>
+
+        <th (click)="sortByValue('reason','reasonArrow')" scope="col">Lý do <i *ngIf="reasonArrow" class="fa fa-thin fa-arrow-up icon-color" ></i>
+                              <i *ngIf="!reasonArrow" class="fa icon-color fa-thin fa-arrow-down"></i></th>
       </tr>
       </thead>
       <tbody *ngIf="transferList" class="text-center">
@@ -108,6 +108,11 @@
   <!--              Pagination                -->
   <nav class="pt-3" aria-label="...">
     <ul class="pagination justify-content-end">
+      <select #selectSize (change)="pageItem(selectSize.value)"   class="page-items mr-1" >
+        <option selected >5</option>
+        <option >10</option>
+        <option >15</option>
+      </select>
       <li class="page-item " [ngClass]="indexPage == 0?'disabled':''">
         <a class="page-link" (click)="preNextPage('pre')">Previous</a>
       </li>

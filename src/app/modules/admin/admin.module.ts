@@ -18,6 +18,7 @@ import {ProfileComponent} from "../home/profile/profile.component";
 import { TransferListComponent } from './transfers/transfer-list/transfer-list.component';
 import { TransferInformationComponent } from './transfers/transfer-information/transfer-information.component';
 import { TransferUpdateComponent } from './transfers/transfer-update/transfer-update.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [{
   path: '',
@@ -47,6 +48,10 @@ const routes: Routes = [{
       path: 'transfer-update/:id',
       component: TransferUpdateComponent,
     },
+    {
+      path: 'dashboard',
+      component: AdminDashboardComponent,
+    },
   ],
 }];
 
@@ -60,7 +65,8 @@ const routes: Routes = [{
      TransferComponent,
      TransferListComponent,
      TransferInformationComponent,
-     TransferUpdateComponent
+     TransferUpdateComponent,
+     AdminDashboardComponent
   ],
   imports: [
     CommonModule,

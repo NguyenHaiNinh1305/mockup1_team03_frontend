@@ -1,6 +1,28 @@
-<h1>Tạo đợt điều chuyển</h1>
-
-<p-card>
+<div  *ngIf="showSpinner | async">
+  <div class="loader" >
+    <div class="loader-inner">
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+      <div class="loader-line-wrap">
+        <div class="loader-line"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!canUpdate">Bạn không có quyền cập nhật thông tin đợt chuyển</div>
+<div *ngIf="canUpdate">
+<p-card *ngIf="!(showSpinner | async)">
+  <h1>Tạo đợt điều chuyển</h1>
   <form [formGroup]="formTransfer" n>
 
     <div class="form-row">
@@ -97,6 +119,7 @@
   </ng-template>
   <!--      end Modal                 -->
 </p-card>
+</div>
 
 
 

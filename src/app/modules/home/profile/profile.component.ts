@@ -7,6 +7,8 @@ import { ProfileService } from './profile.service';
 import {ToastrService} from "ngx-toastr";
 import {NgbModal, NgbModalConfig} from "@ng-bootstrap/ng-bootstrap";
 import {Router} from "@angular/router";
+import {AvataServiceService} from "../../../@core/services/avata-service.service";
+import {BehaviorSubject} from "rxjs";
 
 
 export function validateDate(c: AbstractControl) {
@@ -36,6 +38,7 @@ export class ProfileComponent implements OnInit {
   avataName:string;
   file: File = null;
   submited = false;
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     private sessionService: SessionService,
@@ -46,6 +49,7 @@ export class ProfileComponent implements OnInit {
     private modalService: NgbModal,
     private router: Router,
     config: NgbModalConfig,
+   private  avatarsv:AvataServiceService
   ) {config.backdrop = 'static';
     config.keyboard = false;}
 
@@ -102,28 +106,19 @@ export class ProfileComponent implements OnInit {
   }
 
   submit(){
-    this.submited = true;
-    let ckeck = true;
-    Object.keys(this.formProfile.controls).forEach(key => {
-      const controlErrors: ValidationErrors = this.formProfile.get(key).errors;
-      if (controlErrors != null) {
-        ckeck = false;
-        this.checkUpdate = false;
-        this.toastr.warning('Kiểm tra lại thông tin, cập nhật không thành công');
-        return;
-      }
-    });
-    if (ckeck){
-      this.updateUser();
-      this.profileService.putProfile(this.user).subscribe(
-        (res)=>{
-          this.checkUpdate = false;
-          this.toastr.success('Cập nhật thành công');
-        },error => {
-          this.checkUpdate = false;
-          this.toastr.error("Cập nhật không thành công");
-        });
-    }
+     if(this.formProfile.valid){
+       this.showSpinner.next(true);
+       this.profileService.putProfile(this.user).subscribe(
+         (res)=>{
+           this.showSpinner.next(false);
+           this.checkUpdate = false;
+           this.toastr.success('Cập nhật thành công');
+         },error => {
+           this.checkUpdate = false;
+           this.showSpinner.next(false);
+           this.toastr.error("Cập nhật không thành công");
+         });
+     }
   }
 
   updateUser(){
@@ -143,11 +138,15 @@ export class ProfileComponent implements OnInit {
 
   onUpload(){
     if(this.file){
+      this.showSpinner.next(true);
       this.profileService.putAvata(this.file,this.user.id).subscribe(
         (res)=>{
+          this.showSpinner.next(false);
           this.avataName = res.object;
+          this.avatarsv.setAvatarUrl(this.urlAvaTa + this.avataName)
           this.toastr.success("Cập nhật thành công");
         },error => {
+          this.showSpinner.next(false);
           this.toastr.error(error.error.message);
         }
       )

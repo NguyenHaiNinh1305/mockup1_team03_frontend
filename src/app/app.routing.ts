@@ -6,6 +6,7 @@ import {LoginComponent} from "./modules/auth/login/login.component";
 import {FogotPassComponent} from "./modules/auth/fogot-pass/fogot-pass.component";
 import {ChangePasComponent} from "./modules/auth/change-pass/change-pas.component";
 import {AdminGuard} from "./@core/guards/admin.guard";
+import {CkeckPointComponent} from "./modules/home/ckeck-point/ckeck-point.component";
 
 export const routes: Routes = [
   {
@@ -25,11 +26,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   { path: '',
-    redirectTo: 'home',
+    component: CkeckPointComponent,
     pathMatch: 'full',
   },
   { path: '**',
-    redirectTo: 'home',
+    component: CkeckPointComponent,
   },
 ];
 

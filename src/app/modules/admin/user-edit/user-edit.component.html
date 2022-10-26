@@ -222,26 +222,48 @@
     </div>
 <!--  </div>-->
 
-  <div class="footer">
-    <div class="row">
-      <div class="col-4"></div>
+<!--  <div class="footer">-->
+<!--    <div class="row">-->
+<!--      <div class="col-4"></div>-->
 
-    <div class=" col-2 text-center m-0">
-      <button type="button " class="btn btn-success" (click)="update()" [disabled]="(!formEdit.valid) ||(checkHr() && formEdit.value.unit.id ==3)"  >Cập nhật</button>
-    </div>
+<!--    <div class=" col-2 text-center m-0">-->
+<!--      <button type="button " class="btn btn-success" (click)="update()" [disabled]="(!formEdit.valid) ||(checkHr() && formEdit.value.unit.id ==3)"  >Cập nhật</button>-->
+<!--    </div>-->
 
-      <div class=" col-2 text-center m-0">
-        <button type="button " class="btn btn-success" (click)="activated()" [disabled]=" (check1()) ||(checkHr()&&formEdit.value.unit.id==3)"  >Phê duyệt</button>
-      </div>
-      <div class=" col-2 text-center m-0">
-        <button type="button " class="btn btn-success" (click)="deactivated()" [disabled]="(!checkAcitve) ||(checkHr()&&formEdit.value.unit.id==3)"  >Hủy kích hoạt</button>
-      </div>
+<!--      <div class=" col-2 text-center m-0">-->
+<!--        <button type="button " class="btn btn-success" (click)="activated()" [disabled]=" (check1()) ||(checkHr()&&formEdit.value.unit.id==3)"  >Phê duyệt</button>-->
+<!--      </div>-->
+<!--      <div class=" col-2 text-center m-0">-->
+<!--        <button type="button " class="btn btn-success" (click)="deactivated()" [disabled]="(!checkAcitve) ||(checkHr()&&formEdit.value.unit.id==3)"  >Hủy kích hoạt</button>-->
+<!--      </div>-->
 
-      <div class=" col-1 text-center m-0">
-        <button type="button " class="btn btn-success">Checkpoint</button>
-      </div>
+<!--      <div class=" col-1 text-center m-0">-->
+<!--&lt;!&ndash;        hiep thay doi checkpoint => transfer, add (click)="transfer()"&ndash;&gt;-->
+<!--        <button type="button " [disabled]="check1()" (click)="transfer()" class="btn btn-success">Transfer</button>-->
+<!--      </div>-->
 
-  </div>
-  </div>
+<!--  </div>-->
+<!--  </div>-->
 <!--</ng-template>-->
+
+  <div class="footer">
+    <div class="row float-right mr-1">
+
+      <div>
+        <button type="button " class="btn btn-success ml-1" (click)="update()" [disabled]="(!formEdit.valid) ||(checkHr() && formEdit.value.unit.id ==3)"  >Cập nhật</button>
+      </div>
+
+      <div>
+        <button type="button " class="btn btn-success ml-1" (click)="activated()" [disabled]=" (check1()) ||(checkHr()&&formEdit.value.unit.id==3)"  >Phê duyệt</button>
+      </div>
+      <div>
+        <button type="button " class="btn btn-success ml-1" (click)="deactivated()" [disabled]="(!checkAcitve) ||(checkHr()&&formEdit.value.unit.id==3)"  >Hủy kích hoạt</button>
+      </div>
+
+      <div>
+        <button type="button " (click)="transfer()" class="btn btn-success ml-1">Diều chuyển</button>
+      </div>
+
+    </div>
+  </div>
 </form>

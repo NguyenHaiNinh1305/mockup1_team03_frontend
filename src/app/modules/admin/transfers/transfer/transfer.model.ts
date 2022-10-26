@@ -35,4 +35,10 @@ export interface TransferSearchDTO{
   unitOld?:Unit;
   unitNew?:Unit;
   succeeDay?:Date;
+  sortByValuesDTOList?:SortByValuesDTO[];
+}
+
+export interface SortByValuesDTO{
+  name?:string;
+  type?:string;
 }

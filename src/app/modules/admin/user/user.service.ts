@@ -3,6 +3,8 @@ import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import { User} from "./user.mode";
+import {USortDTOs} from "./UserSortDTO";
+
 
 
 @Injectable({
@@ -35,21 +37,22 @@ export class userService {
     return this.http.put<any>(`${this.userAPI}/`+id,user);
   }
 
-  public getPageTransfer(indexPage: any, idUser:any,sortBy:any,
-                         descAsc:any, dto:any): Observable<any>{
+  public getPageUser(indexPage: any, idUser:any,
+                     size:any,dto:USortDTOs): Observable<any>{
     return this.http.put<any>(this.userAPI +"/sortByKey?page="+indexPage
-                               +"&id="+idUser+"&sortByValue="+sortBy+
-                                "&descAsc="+descAsc,dto) ;
+      +"&id="+idUser+"&size="+size,dto) ;
   }
 
-   public deactivated(id: any):Observable<any>{
+  public deactivated(id: any):Observable<any>{
     return this.http.put<any>(`${this.userAPI}/deactivated/`+id,null);
-   }
+  }
 
   public activated(id: any):Observable<any>{
     return this.http.put<any>(`${this.userAPI}/activated/`+id,null);
   }
 
-
+  public findIsActivce(indexPage:any, size:any,dto:USortDTOs):Observable<any>{
+    return this.http.put<any>(this.userAPI+"/isActive?page=" +indexPage+"&size="+size,dto);
+  }
 
 }

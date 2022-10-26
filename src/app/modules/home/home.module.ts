@@ -17,7 +17,7 @@ const routes: Routes = [{
   component: HomeComponent,
   children: [
     {
-      path: 'dashboard',
+      path: 'chek-point',
       // loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
     },
     {
@@ -29,7 +29,7 @@ const routes: Routes = [{
       component: NewPassComponent,
     },
     {
-      path: 'chek-point',
+      path: 'dashboard',
       component: CkeckPointComponent,
     },
 

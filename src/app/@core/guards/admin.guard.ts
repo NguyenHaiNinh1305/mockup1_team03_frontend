@@ -26,7 +26,7 @@ export class AdminGuard implements CanActivate {
     }
 
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/home/'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['/home/dashboard'], { queryParams: { returnUrl: state.url } });
     return true;
   }
 

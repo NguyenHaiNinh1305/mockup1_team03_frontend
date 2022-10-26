@@ -6,6 +6,8 @@ import { Unit, User, UsserDTO} from "./user.mode";
 import {ToastrService} from "ngx-toastr";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {UserService} from "../../../@core/services/user.service";
+import {BehaviorSubject} from "rxjs";
+import {SortByValueUserDTO, USortDTOs} from "./UserSortDTO";
 
 
 @Component({
@@ -27,7 +29,10 @@ export class UserComponent implements OnInit {
   idUser: any;
   indexPage = 0;
   Page: object = {};
-  userSearch: UsserDTO={};
+  loading:boolean;
+  size = 5;
+  showLoader : BehaviorSubject<boolean> = new BehaviorSubject(false);
+  userDto:USortDTOs={};
 
   constructor(
     private fb: FormBuilder,
@@ -41,7 +46,9 @@ export class UserComponent implements OnInit {
 
   //
   ngOnInit(): void {
+    this.userDto.sortByValueUserDTOS = [];
     this.idUser = localStorage.getItem("id-user");
+    console.log(this.idUser)
     this.pagination(this.indexPage);
     this.getAllUnit();
     this.initFormSearch();
@@ -64,12 +71,7 @@ export class UserComponent implements OnInit {
       position: ['', Validators.required],
       isLeader: ['', Validators.required],
     });
-
-
-
-
   }
-
 
   openLg(content) {
     this.modalService.open(content, {size: 'lg', centered: true, scrollable: true});
@@ -93,18 +95,24 @@ export class UserComponent implements OnInit {
 
   create() {
     this.addValueUser();
-    console.log(this.user);
     if ((this.checkDmHr() == true) && (this.user.unit.id == 3) && (this.user.leader == true)) {
       this.toastr.error("Không được chọn trạng thái trưởng đơn vị cho hr")
       return;
     }
+    // if(this.user.birthDay.getDate() >Date.now()){
+    //   this.toastr.error("Ngày sinh khoongg hợp lệ");
+    // }
+    this.loading =true;
+    this.showLoader.next(true);
     this.userService.create(this.idUser,this.user).subscribe(
       res => {
+        this.showLoader.next(false);
         this.toastr.success(res.message);
         this.ngOnInit();
         this.modalService.dismissAll();
         // this.router.navigate(['/user']).then(r => console.log(r));
       }, error => {
+        this.showLoader.next(false);
         if (error.error.message === "Username đã tồn tại") {
           this.toastr.error(error.error.message);
         } else if (error.error.message === "Email đã tồn tại") {
@@ -195,21 +203,20 @@ export class UserComponent implements OnInit {
       return false;
     }
   }
-
-
+  
   pagination(page: any) {
     if (page < 0) {
       page = 0;
     }
-    console.log(this.sortBy)
+
     this.indexPage = page
-    this.userService.getPageTransfer(this.indexPage, this.idUser,
-      this.sortBy, this.descAsc, this.userSearch)
+    this.userService.getPageUser(this.indexPage,this.idUser,this.size,this.userDto)
       .subscribe(res => {
         this.datas = res.object.content;
         this.Page = res.object;
-        console.log(this.Page)
-      });
+      },error => {
+      })
+
   }
 
   preNextPage(selector: string) {
@@ -239,16 +246,15 @@ export class UserComponent implements OnInit {
 
   FillValueSearch() {
     const formSearchValue = this.formSearch.value;
-    this.userSearch.name = formSearchValue.name;
-    this.userSearch.email = formSearchValue.email;
-    this.userSearch.literacy = formSearchValue.literacy;
-    this.userSearch.salary = formSearchValue.salary;
-    this.userSearch.birthDay = formSearchValue.birthDay;
-    let unitId = this.formAdd.value.unit;
-    this.userSearch.unit = this.datas1.find(unit => {
+    this.userDto.name = formSearchValue.name;
+    this.userDto.email = formSearchValue.email;
+    this.userDto.literacy = formSearchValue.literacy;
+    this.userDto.salary = formSearchValue.salary;
+    this.userDto.birthDay = formSearchValue.birthDay;
+    let unitId = formSearchValue.unit;
+    this.userDto.unit = this.datas1.find(unit => {
       return unit.id == unitId;
     });
-    console.log(this.formSearch.value)
   }
 
   onSubmit1() {
@@ -266,12 +272,40 @@ export class UserComponent implements OnInit {
 
   }
 
-onSumitSort(){
-this.FillValueSort();
-  this.descAsc == 'asc' ? this.descAsc = 'desc' : this.descAsc = 'asc';
-  console.log(this.descAsc)
-   this.pagination(0);
-}
+  onSumitSort(){
+    this.FillValueSort();
+    this.descAsc == 'asc' ? this.descAsc = 'desc' : this.descAsc = 'asc';
+    console.log(this.descAsc)
+    this.pagination(0);
+  }
+
+
+  pageItem(pageItems){
+    this.size = pageItems;
+    this.indexPage = 0;
+    this.pagination(this.indexPage);
+  }
+
+  sortByValue(sortValues:string){
+    const length = this.userDto.sortByValueUserDTOS.length;
+    const sortValue:SortByValueUserDTO = {name:sortValues, type:"desc"}
+    if(!length){
+      const sortValue:SortByValueUserDTO = {name:sortValues, type:"desc"}
+      this.userDto.sortByValueUserDTOS.push(sortValue)
+    }else {
+      let notContacts = true;
+      this.userDto.sortByValueUserDTOS.forEach(value => {
+        if(value.name == sortValues){
+          value.type = value.type == 'desc'?'asc':'desc';
+          notContacts = false;
+        }
+      })
+      if(notContacts){
+        this.userDto.sortByValueUserDTOS.push(sortValue)
+      }
+    }
+    this.pagination(this.indexPage);
+  }
 
 
 

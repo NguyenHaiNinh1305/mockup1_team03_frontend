@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Status, Transfer} from "../transfer/transfer.model";
 import {User} from "../../../home/profile/profile.model";
 import {ToastrService} from "ngx-toastr";
+import {BehaviorSubject} from "rxjs";
+import {TokenService} from "../../../../@core/services/token.service";
 
 @Component({
   selector: 'ngx-transfer-information',
@@ -17,7 +19,8 @@ export class TransferInformationComponent implements OnInit {
   user: User;
   canReview: boolean = false;
   idTransfer:any;
-
+  showSpinner: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  canShowTransfer = false
 
   constructor(
     private  transferService: TransferService,
@@ -25,6 +28,7 @@ export class TransferInformationComponent implements OnInit {
     private router: Router,
     private  activatedRoute: ActivatedRoute,
     private  toastr: ToastrService,
+    private tokenService: TokenService,
   ) {
   }
 
@@ -37,13 +41,33 @@ export class TransferInformationComponent implements OnInit {
           const userId = localStorage.getItem('id-user')
           this.userService.getUserById(parseInt(userId)).subscribe(res => {
             this.user = res;
-            this.isCanReview();
+            if(this.authorizationManager()){
+              this.isCanReview();
+            }
           })
         })
       }
     });
-
   }
+
+  authorizationManager(){
+    const jwtDecode = this.userService.getDecodedAccessToken();
+    this.tokenService.saveUser(jwtDecode.sub);
+    let role = jwtDecode.auth.split(',')
+    if (role.includes('ROLE_ADMIN') || role.includes('ROLE_DM_HR')
+      || role.includes('ROLE_HR') ) {
+      this.canShowTransfer = true;
+      return true;
+    }else if(role.includes('ROLE_DM')) {
+      const  idUnit = this.user.unit.id
+      if( idUnit == this.transfer.unitNew.id || idUnit == this.transfer.unitOld.id)
+        this.canShowTransfer = true;
+        return true;
+    }
+    this.canShowTransfer = false;
+     return  false;
+  }
+
 
   isCanReview() {
     // neu transfer da duyet, tu choi, da huy, khong cho thay doi thong tin
@@ -72,43 +96,31 @@ export class TransferInformationComponent implements OnInit {
     }
   }
 
-  refuse() {
-    // const status: Status = {id: 4, name: 'refuse'};
-    // this.review(status);
-    // this.transferService.reviewTransfer(this.transfer,this.user.id).subscribe(res => {
-    //   this.transfer = res;
-    //   this.toastr.success("Thành công")
-    //   this.canReview = false;
-    // }, error => {
-    //   this.toastr.error('Thất bại')
-    // })
-  }
-
   reviewTransfer(type:string){
     let status: Status ;
     status = type == 'refuse' ?  {id: 4, name: 'refuse'}:{id: 3, name: 'agree'};
     this.review(status);
+    this.showSpinner.next(true);
     this.transferService.reviewTransfer(this.transfer,this.user.id).subscribe(res => {
+      this.showSpinner.next(false);
       this.transfer = res.object;
       this.toastr.success("Thành công")
       this.canReview = false;
     }, error => {
+      this.showSpinner.next(false);
       this.toastr.error('Thất bại')
     })
   }
 
-  // agree() {
-  //   const status: Status = {id: 3, name: 'agree'};
-  //
-  // }
-
   cancel() {
+    this.showSpinner.next(true);
     this.transferService.cancelTransfer(this.user, this.idTransfer).subscribe(res => {
-      console.log(res)
+      this.showSpinner.next(false);
       this.transfer = res.object;
-      console.log(this.transfer)
+      this.canReview = false;
       this.toastr.success("Hủy hành công")
     }, error => {
+      this.showSpinner.next(false);
       this.toastr.error('Thất bại')
     })
   }
